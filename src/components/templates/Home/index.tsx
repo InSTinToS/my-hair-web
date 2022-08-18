@@ -1,8 +1,17 @@
-import { BackgroundImages, SignIn, SignInForm } from './styles'
+import { useHome } from './logic'
+import { ArrowButton, BackgroundImages, SignIn, SignInForm } from './styles'
+
+import { Cube } from 'components/molecules/Cube'
+
+import { theme } from 'styles'
 
 import Head from 'next/head'
+import Image from 'next/image'
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
 const Home = () => {
+  const { cubeRef, onLeftArrowClick, onRightArrowClick } = useHome()
+
   return (
     <>
       <Head>
@@ -14,9 +23,67 @@ const Home = () => {
       </Head>
 
       <SignIn>
-        <BackgroundImages>bgImage</BackgroundImages>
+        <BackgroundImages draggable={false}>
+          <ArrowButton
+            type='button'
+            direction='left'
+            onClick={onLeftArrowClick}
+          >
+            <FiChevronLeft
+              size={theme.space['12'].value}
+              color={theme.colors.secondary_500_text.value}
+            />
+          </ArrowButton>
 
-        <SignInForm>logo</SignInForm>
+          <Cube
+            ref={cubeRef}
+            front={
+              <Image
+                layout='fill'
+                draggable={false}
+                alt='barber shop'
+                objectFit='cover'
+                src='/barberShop/1.jpg'
+              />
+            }
+            left={
+              <Image
+                layout='fill'
+                draggable={false}
+                alt='barber shop'
+                objectFit='cover'
+                src='/barberShop/2.jfif'
+              />
+            }
+            right={
+              <Image
+                layout='fill'
+                draggable={false}
+                objectFit='cover'
+                alt='barber shop'
+                src='/barberShop/3.jpg'
+              />
+            }
+            back={
+              <Image
+                layout='fill'
+                draggable={false}
+                alt='barber shop'
+                objectFit='cover'
+                src='/barberShop/4.jpg'
+              />
+            }
+          />
+
+          <ArrowButton type='button' onClick={onRightArrowClick}>
+            <FiChevronRight
+              size={theme.space['12'].value}
+              color={theme.colors.secondary_500_text.value}
+            />
+          </ArrowButton>
+        </BackgroundImages>
+
+        <SignInForm></SignInForm>
       </SignIn>
 
       <section></section>

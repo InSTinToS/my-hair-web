@@ -1,3 +1,4 @@
+import { space } from './themes/common/space'
 import { colors } from './themes/dark/colors'
 
 import { createStitches } from '@stitches/react'
@@ -13,7 +14,8 @@ export const {
   config
 } = createStitches({
   theme: {
-    colors
+    colors,
+    space
   },
   media: {},
   utils: {
