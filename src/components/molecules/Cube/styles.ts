@@ -30,3 +30,7 @@ export const Face = styled(motion.li, {
   '&.right': { transform: 'translateX(50%) rotateY(90deg)' },
   '&.left': { transform: 'translateX(-50%) rotateY(-90deg)' }
 })
+
+Face.displayName = 'Face'
+CubeStyle.displayName = 'CubeStyle'
+Perspective.displayName = 'Perspective'

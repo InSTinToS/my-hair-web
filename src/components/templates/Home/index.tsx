@@ -39,9 +39,10 @@ const Home = () => {
 
           <Cube
             ref={cubeRef}
-            interval={{ direction: 'right', ms: 10000 }}
+            interval={{ direction: 'right', ms: 3500 }}
             front={
               <Image
+                priority
                 layout='fill'
                 draggable={false}
                 alt='barber shop'

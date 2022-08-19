@@ -1,4 +1,4 @@
-import useWindowSize from './index'
+import { useWindowSize } from './index'
 
 import { act, renderHook } from '@testing-library/react-hooks'
 

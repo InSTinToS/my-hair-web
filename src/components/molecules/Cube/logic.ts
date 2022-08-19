@@ -2,6 +2,7 @@ import type { ICubeExport, IUseCubeParams, TDynamicCSSKeys } from './types'
 
 import { useCubeAnimations } from './animations'
 
+import { useTabFocus } from 'hooks/useTabFocus'
 import { useWindowSize } from 'hooks/useWindowSize'
 
 import { TDynamicCSS } from 'types/stitches.types'
@@ -10,10 +11,10 @@ import { PanHandlers } from 'framer-motion'
 import { useEffect, useImperativeHandle, useRef, useState } from 'react'
 
 export const useCube = ({ ref, interval }: IUseCubeParams) => {
+  const { tabHasFocus } = useTabFocus()
   const { innerWidth } = useWindowSize()
   const [cubeWidth, setCubeWidth] = useState(0)
   const cubeRef = useRef<HTMLUListElement>(null)
-
   const { moved, move, cubeAnimationsProps } = useCubeAnimations()
 
   const dynamicCSS: TDynamicCSS<TDynamicCSSKeys> = {
@@ -27,7 +28,11 @@ export const useCube = ({ ref, interval }: IUseCubeParams) => {
   useImperativeHandle<ICubeExport, ICubeExport>(ref, () => ({ move }))
 
   useEffect(() => {
-    if (interval) {
+    setCubeWidth(cubeRef.current?.clientWidth || 0)
+  }, [innerWidth, cubeRef])
+
+  useEffect(() => {
+    if (interval && tabHasFocus) {
       const timer = setInterval(() => {
         move({ ignoreFirstMove: true, direction: interval.direction })
       }, interval.ms)
@@ -38,11 +43,7 @@ export const useCube = ({ ref, interval }: IUseCubeParams) => {
         clearInterval(timer)
       }
     }
-  }, [move, moved, interval])
-
-  useEffect(() => {
-    setCubeWidth(cubeRef.current?.clientWidth || 0)
-  }, [innerWidth, cubeRef])
+  }, [move, moved, interval, tabHasFocus])
 
   return { cubeRef, cubeAnimationsProps, dynamicCSS, onCubePanEnd }
 }

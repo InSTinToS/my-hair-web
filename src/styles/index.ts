@@ -6,19 +6,15 @@ import { utils } from './utils'
 import { createStitches } from '@stitches/react'
 
 export const {
-  styled,
   css,
-  globalCss,
-  keyframes,
-  getCssText,
   theme,
-  createTheme,
-  config
-} = createStitches({
-  utils,
-  media,
-  theme: { colors, space }
-})
+  config,
+  styled,
+  keyframes,
+  globalCss,
+  getCssText,
+  createTheme
+} = createStitches({ utils, media, theme: { colors, space } })
 
 export const globalStyles = globalCss({
   '*': { margin: 0, padding: 0, boxSizing: 'border-box' }

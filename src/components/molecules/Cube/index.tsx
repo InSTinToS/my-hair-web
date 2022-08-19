@@ -34,3 +34,5 @@ export const Cube = forwardRef<ICubeForwarded, ICubeProps>(
     )
   }
 )
+
+Cube.displayName = 'Cube'

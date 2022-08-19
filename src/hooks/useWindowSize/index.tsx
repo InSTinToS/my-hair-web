@@ -1,9 +1,11 @@
 import { IWindowSize } from './types'
 
+import { TTimer } from 'types/timer.types'
+
 import { useEffect, useState } from 'react'
 
 const debounce = (functionToDebounce: (args: any) => void, timeout: number) => {
-  let timer: NodeJS.Timeout | string | number | undefined
+  let timer: TTimer
 
   return (args: any) => {
     clearTimeout(timer)
