@@ -1,17 +1,29 @@
 import { ReactNode, Ref } from 'react'
 
+type TMoveDirections = 'left' | 'right'
+
 export interface ICubeProps {
-  front: ReactNode
   left: ReactNode
-  right: ReactNode
   back: ReactNode
+  front: ReactNode
+  right: ReactNode
+  interval?: { ms: number; direction: TMoveDirections }
 }
+
+export interface ICubeExport {
+  move: TMove
+}
+
+export interface ICubeForwarded extends HTMLDivElement, ICubeExport {}
 
 export interface IUseCubeParams {
-  ref: Ref<ICubeRef>
+  ref: Ref<ICubeForwarded>
+  interval: ICubeProps['interval']
 }
 
-export interface ICubeRef {
-  moveToLeft: () => void
-  moveToRight: () => void
-}
+export type TDynamicCSSKeys = 'backFace' | 'frontFace'
+
+export type TMove = (params: {
+  ignoreFirstMove?: boolean
+  direction: TMoveDirections
+}) => void

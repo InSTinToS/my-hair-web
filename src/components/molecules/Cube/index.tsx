@@ -1,42 +1,32 @@
-/* eslint-disable @next/next/no-img-element */
 import { useCube } from './logic'
 import { CubeStyle, Face, Perspective } from './styles'
-import { ICubeProps, ICubeRef } from './types'
+import { ICubeForwarded, ICubeProps } from './types'
 
 import { forwardRef } from 'react'
 
-export const Cube = forwardRef<ICubeRef, ICubeProps>(
-  ({ back: Back, front: Front, left: Left, right: Right }, ref) => {
-    const { onCubePanEnd, controls, cubeRef, cubeHeight } = useCube({ ref })
+export const Cube = forwardRef<ICubeForwarded, ICubeProps>(
+  ({ interval, back: Back, front: Front, left: Left, right: Right }, ref) => {
+    const { cubeRef, cubeAnimationsProps, dynamicCSS, onCubePanEnd } = useCube({
+      ref,
+      interval
+    })
 
     return (
-      <Perspective ref={ref as any} onPanEnd={onCubePanEnd}>
-        <CubeStyle
-          animate={controls}
-          ref={cubeRef as any}
-          transition={{ duration: 1 }}
-        >
-          <Face
-            draggable={false}
-            className='front'
-            css={{ transform: `translateZ(${cubeHeight}px)` }}
-          >
+      <Perspective ref={ref} onPanEnd={onCubePanEnd}>
+        <CubeStyle ref={cubeRef} {...cubeAnimationsProps}>
+          <Face className='front' draggable={false} css={dynamicCSS.frontFace}>
             {Front}
           </Face>
 
-          <Face draggable={false} className='left'>
+          <Face className='left' draggable={false}>
             {Left}
           </Face>
 
-          <Face draggable={false} className='right'>
+          <Face className='right' draggable={false}>
             {Right}
           </Face>
 
-          <Face
-            className='back'
-            draggable={false}
-            css={{ transform: `translateZ(-${cubeHeight}px) rotateY(-180deg)` }}
-          >
+          <Face className='back' draggable={false} css={dynamicCSS.backFace}>
             {Back}
           </Face>
         </CubeStyle>

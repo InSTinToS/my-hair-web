@@ -13,18 +13,17 @@ export const Perspective = styled(motion.div, {
 })
 
 export const CubeStyle = styled(motion.ul, {
-  width: '80%',
-  height: '80%',
+  size: '100%',
   listStyle: 'none',
   position: 'relative',
-  transformStyle: 'preserve-3d'
+  transformStyle: 'preserve-3d',
+  '@3xl': { size: '85%' }
 })
 
 export const Face = styled(motion.li, {
   top: 0,
   opacity: 1,
-  width: '100%',
-  height: '100%',
+  size: '100%',
   userSelect: 'none',
   position: 'absolute',
   backgroundColor: '$primary_500_color',

@@ -1,4 +1,4 @@
-import type { TAppPropsWithLayout } from 'typescript/next.types'
+import type { TAppPropsWithLayout } from 'types/next.types'
 
 import { GlobalProvider } from 'components/providers/GlobalProvider'
 

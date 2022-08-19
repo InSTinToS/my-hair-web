@@ -1,4 +1,4 @@
-import type { TStoreDispatch } from 'typescript/redux.types'
+import type { TStoreDispatch } from 'types/redux.types'
 
 import { useDispatch } from 'react-redux'
 

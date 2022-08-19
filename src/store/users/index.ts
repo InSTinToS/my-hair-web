@@ -1,6 +1,6 @@
 import { update } from './reducers/update'
 
-import type { TExtraReducers } from 'typescript/redux.types'
+import type { TExtraReducers } from 'types/redux.types'
 
 import { createSlice } from '@reduxjs/toolkit'
 

@@ -1,4 +1,4 @@
-import type { TStoreState } from 'typescript/redux.types'
+import type { TStoreState } from 'types/redux.types'
 
 import type { TypedUseSelectorHook } from 'react-redux'
 

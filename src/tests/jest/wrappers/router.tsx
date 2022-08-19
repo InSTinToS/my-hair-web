@@ -9,10 +9,11 @@ interface IRouterProviderProps {
   props?: Partial<NextRouter>
 }
 
-const RouterProvider = ({ children, props = {} }: IRouterProviderProps) => (
+export const RouterProvider = ({
+  children,
+  props = {}
+}: IRouterProviderProps) => (
   <RouterContext.Provider value={createMockRouter(props)}>
     {children}
   </RouterContext.Provider>
 )
-
-export default RouterProvider

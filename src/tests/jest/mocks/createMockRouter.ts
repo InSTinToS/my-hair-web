@@ -1,6 +1,6 @@
 import { NextRouter } from 'next/router'
 
-const createMockRouter = (router: Partial<NextRouter>): NextRouter => ({
+export const createMockRouter = (router: Partial<NextRouter>): NextRouter => ({
   query: {},
   route: '/',
   asPath: '/',
@@ -25,5 +25,3 @@ const createMockRouter = (router: Partial<NextRouter>): NextRouter => ({
   },
   ...router
 })
-
-export { createMockRouter }

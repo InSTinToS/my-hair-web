@@ -11,21 +11,22 @@ export const ArrowButton = styled('button', {
 })
 
 export const BackgroundImages = styled('aside', {
-  width: '66vw',
+  width: '100vw',
+  height: '100vh',
   flexCenter: 'row',
   position: 'relative',
-  backgroundColor: '$secondary_500_color'
+  backgroundColor: '$secondary_500_color',
+  '@lg': { width: '66vw' }
 })
 
 export const SignInForm = styled('form', {
-  flex: 1,
-  width: '40%',
-  flexCenter: 'row',
-  theme: '$primary_500'
+  windowSize: 100,
+  theme: '$primary_500',
+  '@lg': { width: '40%' }
 })
 
 export const SignIn = styled('main', {
-  height: '100vh',
   display: 'flex',
-  flexDirection: 'row'
+  flexDirection: 'column',
+  '@lg': { flexDirection: 'row' }
 })

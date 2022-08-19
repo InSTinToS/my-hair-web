@@ -23,6 +23,8 @@ const Home = () => {
       </Head>
 
       <SignIn>
+        <SignInForm></SignInForm>
+
         <BackgroundImages draggable={false}>
           <ArrowButton
             type='button'
@@ -37,6 +39,7 @@ const Home = () => {
 
           <Cube
             ref={cubeRef}
+            interval={{ direction: 'right', ms: 10000 }}
             front={
               <Image
                 layout='fill'
@@ -82,8 +85,6 @@ const Home = () => {
             />
           </ArrowButton>
         </BackgroundImages>
-
-        <SignInForm></SignInForm>
       </SignIn>
 
       <section></section>

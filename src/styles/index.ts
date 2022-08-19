@@ -1,5 +1,7 @@
+import { media } from './themes/common/media'
 import { space } from './themes/common/space'
 import { colors } from './themes/dark/colors'
+import { utils } from './utils'
 
 import { createStitches } from '@stitches/react'
 
@@ -13,29 +15,11 @@ export const {
   createTheme,
   config
 } = createStitches({
-  theme: {
-    colors,
-    space
-  },
-  media: {},
-  utils: {
-    theme: (theme: string) => ({
-      color: `${theme}_text`,
-      backgroundColor: `${theme}_color`
-    }),
-    flexCenter: (direction: 'row' | 'col') => ({
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      flexDirection: direction === 'col' ? 'column' : 'row'
-    })
-  }
+  utils,
+  media,
+  theme: { colors, space }
 })
 
 export const globalStyles = globalCss({
-  '*': {
-    margin: 0,
-    padding: 0,
-    boxSizing: 'border-box'
-  }
+  '*': { margin: 0, padding: 0, boxSizing: 'border-box' }
 })

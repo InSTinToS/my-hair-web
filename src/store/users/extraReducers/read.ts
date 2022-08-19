@@ -1,4 +1,4 @@
-import { TExtraReducers, TPayloadCreator } from 'typescript/redux.types'
+import { TExtraReducers, TPayloadCreator } from 'types/redux.types'
 
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
@@ -8,9 +8,9 @@ const read: TPayloadCreator<any, any> = async () => {
   return { loading: false, users }
 }
 
-const readThunk = createAsyncThunk('users-store/read', read)
+export const readThunk = createAsyncThunk('users-store/read', read)
 
-const readExtraReducers: TExtraReducers<any> = ({ addCase }) => {
+export const readExtraReducers: TExtraReducers<any> = ({ addCase }) => {
   addCase(readThunk.pending, state => ({ ...state, loading: true }))
 
   addCase(readThunk.fulfilled, (state, { payload }) => ({
@@ -24,5 +24,3 @@ const readExtraReducers: TExtraReducers<any> = ({ addCase }) => {
     loading: false
   }))
 }
-
-export { readExtraReducers, readThunk }
