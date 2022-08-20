@@ -1,3 +1,8 @@
+import { margin } from './margin'
+import { padding } from './padding'
+import { radius } from './radius'
+import { size } from './size'
+
 export const utils = {
   theme: (theme: string) => ({
     color: `${theme}_text`,
@@ -11,10 +16,8 @@ export const utils = {
     flexDirection: direction === 'col' ? 'column' : 'row'
   }),
 
-  windowSize: (value: number) => ({
-    width: `${value}vw`,
-    height: `${value}vh`
-  }),
-
-  size: (value: string | number) => ({ width: value, height: value })
+  ...size,
+  ...radius,
+  ...margin,
+  ...padding
 }
