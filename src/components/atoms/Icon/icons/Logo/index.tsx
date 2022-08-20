@@ -1,7 +1,10 @@
-import composeClassName from 'utils/composeClassName'
+import { Icon } from '../..'
+import type { IIconProps } from '../../types'
 
-const Logo = ({ className, ...props }: any) => (
-  <svg
+import { composeClassName } from 'utils/composeClassName'
+
+export const Logo = ({ className, ...props }: IIconProps) => (
+  <Icon
     viewBox='0 0 385 392'
     className={composeClassName('Logo', className)}
     {...props}
@@ -16,40 +19,33 @@ const Logo = ({ className, ...props }: any) => (
 
     <defs>
       <filter
+        id='filter0_d_403_2'
         x='0'
         y='0'
         width='385'
         height='385'
-        id='filter0_d_403_2'
         filterUnits='userSpaceOnUse'
         colorInterpolationFilters='sRGB'
       >
         <feFlood floodOpacity='0' result='BackgroundImageFix' />
-
         <feColorMatrix
           in='SourceAlpha'
           type='matrix'
           values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'
           result='hardAlpha'
         />
-
         <feOffset dy='4' />
-
         <feGaussianBlur stdDeviation='2' />
-
         <feComposite in2='hardAlpha' operator='out' />
-
         <feColorMatrix
           type='matrix'
           values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0'
         />
-
         <feBlend
           mode='normal'
           in2='BackgroundImageFix'
           result='effect1_dropShadow_403_2'
         />
-
         <feBlend
           mode='normal'
           in='SourceGraphic'
@@ -58,7 +54,5 @@ const Logo = ({ className, ...props }: any) => (
         />
       </filter>
     </defs>
-  </svg>
+  </Icon>
 )
-
-export default Logo

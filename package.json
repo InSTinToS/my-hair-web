@@ -12,6 +12,7 @@
     "ci": "next build && next export"
   },
   "dependencies": {
+    "@radix-ui/react-label": "^1.0.0",
     "@reduxjs/toolkit": "^1.8.3",
     "@stitches/react": "^1.2.8",
     "axios": "^0.27.2",
@@ -20,7 +21,7 @@
     "next-themes": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.34.0",
+    "react-hook-form": "^7.34.2",
     "react-icons": "^4.4.0",
     "react-redux": "^8.0.2"
   },

@@ -17,6 +17,11 @@ export const useCubeAnimations = () => {
   const [moved, setMoved] = useState(false)
   const [disabled, setDisabled] = useState(false)
 
+  const cubeAnimationsProps: MotionProps = {
+    animate: controls,
+    transition: { duration: 1 }
+  }
+
   const move: TMove = ({ ignoreFirstMove = false, direction }) => {
     if (disabled) return
 
@@ -45,11 +50,6 @@ export const useCubeAnimations = () => {
       clearTimeout(timer)
     }
   }, [timer])
-
-  const cubeAnimationsProps: MotionProps = {
-    animate: controls,
-    transition: { duration: 1 }
-  }
 
   return { move, moved, cubeAnimationsProps }
 }

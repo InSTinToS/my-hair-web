@@ -2,7 +2,7 @@ import { ICubeForwarded } from 'components/molecules/Cube/types'
 
 import { useRef } from 'react'
 
-export const useHome = () => {
+export const useLocation = () => {
   const cubeRef = useRef<ICubeForwarded>(null)
 
   const onRightArrowClick = () => {

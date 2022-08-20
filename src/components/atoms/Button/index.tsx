@@ -1,7 +1,6 @@
-import { ButtonStyle } from './styles'
+import { Styles } from './styles'
+import { IButtonProps } from './types'
 
-import { HTMLAttributes } from 'react'
-
-export const Button = (props: HTMLAttributes<HTMLButtonElement>) => (
-  <ButtonStyle {...props} />
+export const Button = ({ children, ...props }: IButtonProps) => (
+  <Styles {...props}>{children}</Styles>
 )

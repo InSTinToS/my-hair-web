@@ -1,6 +1,6 @@
 import { pxToRem } from 'utils/pxToRem'
 
-export const space = {
+export const sizes = {
   px: '1px',
   auto: 'auto',
   1: pxToRem(2),
