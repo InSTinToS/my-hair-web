@@ -1,31 +1,37 @@
-import { Form, Logo, Styles } from './styles'
-
-import { Button } from 'components/atoms/Button'
-import { GoogleButton } from 'components/atoms/GoogleButton'
-
-import { Field } from 'components/molecules/Field'
+import { useSignIn } from './logic'
+import { Email, Form, Google, Logo, Password, Styles, Submit } from './styles'
 
 import { AiFillLock } from 'react-icons/ai'
 import { BiUser } from 'react-icons/bi'
 
 export const SignIn = () => {
+  const { handleSubmit, onSignInSubmit, register, dirtyFields } = useSignIn()
+
   return (
     <Styles>
-      <Form>
+      <Form onSubmit={handleSubmit(onSignInSubmit)}>
         <Logo />
 
-        <Field name='e-mail' label='E-mail' labelIcon={<BiUser />} />
+        <Email
+          name='email'
+          label='E-mail'
+          register={register}
+          labelIcon={<BiUser />}
+          isFilled={dirtyFields['email']}
+        />
 
-        <Field
+        <Password
           label='Senha'
           name='password'
           type='password'
-          labelIcon={AiFillLock({})}
+          register={register}
+          labelIcon={<AiFillLock />}
+          isFilled={dirtyFields['password']}
         />
 
-        <Button>Entrar</Button>
+        <Submit type='submit'>Entrar</Submit>
 
-        <GoogleButton />
+        <Google />
       </Form>
     </Styles>
   )

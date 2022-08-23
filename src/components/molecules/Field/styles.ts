@@ -16,6 +16,7 @@ export const Input = styled('input', {
   border: 'none',
   height: '100%',
   color: '$primary_500_text',
+  autoFill: '$tertiary_500_color',
   backgroundColor: 'transparent',
 
   '&:focus': { outline: 'none' }
@@ -28,7 +29,6 @@ export const Icon = styled('button', {
   height: '100%',
   minWidth: '$16',
   flexCenter: 'row',
-  stroke: '$primary_500_text',
   backgroundColor: 'transparent',
 
   svg: { size: '100%' }
@@ -39,9 +39,8 @@ export const Style = styled('div', {
   width: '100%',
   height: '$22',
   minWidth: '$64',
-
   display: 'flex',
   position: 'relative',
   alignItems: 'center',
-  border: 'solid 1px $primary_500_text'
+  border: `solid 1px $primary_500_text`
 })

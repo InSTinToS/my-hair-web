@@ -5,33 +5,52 @@ import { IFieldProps } from './types'
 import { ClosedEye } from 'components/atoms/Icon/icons/ClosedEye'
 import { Eye } from 'components/atoms/Icon/icons/Eye'
 
-import { composeClassName } from 'utils/composeClassName'
-
 export const Field = ({
   type,
   name,
   label,
+  register,
+  isFilled,
   labelIcon: LabelIcon,
-  className,
   ...props
 }: IFieldProps) => {
-  const { showEye, showEyes, inputType, onEyeClick, onClosedEyeClick } =
-    useField({ type })
+  const {
+    eyeCSS,
+    showEye,
+    showEyes,
+    labelCSS,
+    styleCSS,
+    inputType,
+    onEyeClick,
+    valueColor,
+    onInputBlur,
+    onInputFocus,
+    registerProps,
+    onClosedEyeClick
+  } = useField({ type, register, name, isFilled })
 
   return (
-    <Style className={composeClassName(`Field ${name}Field`, className)}>
+    <Style css={styleCSS} {...props}>
       {LabelIcon && (
-        <Icon as='label' htmlFor={name}>
+        <Icon as='label' htmlFor={name} css={labelCSS}>
           {LabelIcon}
         </Icon>
       )}
 
       {label && <Label htmlFor={name}>{label}</Label>}
 
-      <Input id={name} name={name} type={inputType} {...props} />
+      <Input
+        id={name}
+        type={inputType}
+        spellCheck={false}
+        {...registerProps}
+        onBlur={onInputBlur}
+        onFocus={onInputFocus}
+        css={{ color: valueColor }}
+      />
 
       {showEyes && (
-        <Icon type='button'>
+        <Icon type='button' css={eyeCSS}>
           {showEye ? (
             <Eye className='eye' onClick={onEyeClick} />
           ) : (

@@ -10,5 +10,7 @@ export const colors: TTheme = {
   success_500_color: '#fcfcfc',
   success_500_text: '#fcfcfc',
   google_white: '#fcfcfc',
-  google_gray: '#878787'
+  google_gray: '#878787',
+  tertiary_500_color: '#fcfcfc',
+  tertiary_500_text: '#fcfcfc'
 }

@@ -9,3 +9,7 @@ export interface IIconProps extends SVGAttributes<SVGElement>, IIconStyleProps {
   title?: string
   labelledBy?: string
 }
+
+export interface IUseIconParams {
+  labelledBy?: IIconProps['labelledBy']
+}
