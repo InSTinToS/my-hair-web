@@ -5,7 +5,8 @@ import { AiFillLock } from 'react-icons/ai'
 import { BiUser } from 'react-icons/bi'
 
 export const SignIn = () => {
-  const { handleSubmit, onSignInSubmit, register, dirtyFields } = useSignIn()
+  const { handleSubmit, errors, onSignInSubmit, register, dirtyFields } =
+    useSignIn()
 
   return (
     <Styles>
@@ -14,19 +15,19 @@ export const SignIn = () => {
 
         <Email
           name='email'
-          label='E-mail'
           register={register}
-          labelIcon={<BiUser />}
+          error={errors['email']}
           isFilled={dirtyFields['email']}
+          label={{ text: 'E-mail', icon: <BiUser /> }}
         />
 
         <Password
-          label='Senha'
           name='password'
           type='password'
           register={register}
-          labelIcon={<AiFillLock />}
+          error={errors['password']}
           isFilled={dirtyFields['password']}
+          label={{ icon: <AiFillLock />, text: 'Senha' }}
         />
 
         <Submit type='submit'>Entrar</Submit>

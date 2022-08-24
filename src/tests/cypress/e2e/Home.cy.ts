@@ -1,5 +1,5 @@
 describe('Home', () => {
-  it('', () => {
+  it('should be able to slide between cube images', () => {
     cy.visit('/')
 
     cy.get('.c-esLwgR-kchaXv-direction-right > svg').click()

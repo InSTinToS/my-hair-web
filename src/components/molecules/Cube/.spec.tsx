@@ -1,5 +1,5 @@
 import { Cube } from '.'
-import { logRoles, render } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import React from 'react'
 
 describe('Cube', () => {

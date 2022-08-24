@@ -1,31 +1,28 @@
-import { IUseFieldParams } from './types'
+import {
+  IUseFieldParams,
+  TOnInputBlur,
+  TOnInputChange,
+  TOnInputFocus
+} from './types'
 
-import { CSS } from '@stitches/react'
 import { useState } from 'react'
 
-export const useField = ({
-  type,
-  name,
-  register,
-  isFilled
-}: IUseFieldParams) => {
+export const useField = ({ type, name, register }: IUseFieldParams) => {
   const [isFocused, setIsFocused] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
 
-  const registerProps = register ? register(name) : undefined
+  const {
+    ref: hookFormRef,
+    onBlur: onHookFormBlur,
+    onChange: onHookFormChange
+  } = register(name)
 
+  const inputRef = hookFormRef
+  const showEyes = type === 'password'
   const inputType =
     type === 'password' ? (showPassword ? 'text' : 'password') : type
-  const showEyes = type === 'password'
-  const showEye = inputType === 'password'
 
-  const iconColor = isFilled ? '$tertiary_500_color' : '$primary_500_text'
-  const borderColor = isFocused ? '$tertiary_500_color' : '$primary_500_text'
-  const valueColor = !isFocused ? '$tertiary_500_color' : '$primary_500_text'
-
-  const eyeCSS: CSS = { stroke: iconColor }
-  const labelCSS: CSS = { '*': { fill: iconColor } }
-  const styleCSS: CSS = { border: `solid 1px ${borderColor}` }
+  const showClosedEye = inputType !== 'password'
 
   const onEyeClick = () => {
     setShowPassword(true)
@@ -35,28 +32,29 @@ export const useField = ({
     setShowPassword(false)
   }
 
-  const onInputFocus = () => {
+  const onInputFocus: TOnInputFocus = () => {
     setIsFocused(true)
   }
 
-  const onInputBlur = () => {
+  const onInputChange: TOnInputChange = event => {
+    onHookFormChange(event)
+  }
+
+  const onInputBlur: TOnInputBlur = event => {
+    onHookFormBlur(event)
     setIsFocused(false)
   }
 
   return {
-    eyeCSS,
-    showEye,
-    styleCSS,
     showEyes,
-    isFilled,
-    labelCSS,
+    inputRef,
+    isFocused,
     inputType,
-    iconColor,
     onEyeClick,
-    valueColor,
     onInputBlur,
     onInputFocus,
-    registerProps,
+    onInputChange,
+    showClosedEye,
     onClosedEyeClick
   }
 }
