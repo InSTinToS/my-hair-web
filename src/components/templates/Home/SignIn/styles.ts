@@ -29,11 +29,12 @@ export const Logo = styled(LogoIcon, {
 
 export const Form = styled('form', {
   display: 'grid',
-  grid: ` 'logo logo'
-          'email email' 
-          'password password'
-          'google submit' auto / 3fr 1fr
-        `,
+  grid: ` 
+    'logo logo'
+    'email email' 
+    'password password'
+    'google submit' auto / 3fr 1fr
+  `,
 
   px: '$8',
   width: 'min(100%, $116)',

@@ -14,20 +14,18 @@ export const SignIn = () => {
         <Logo />
 
         <Email
-          name='email'
-          register={register}
-          error={errors['email']}
+          error={errors['email']?.message}
           isFilled={dirtyFields['email']}
           label={{ text: 'E-mail', icon: <BiUser /> }}
+          {...register('email')}
         />
 
         <Password
-          name='password'
           type='password'
-          register={register}
-          error={errors['password']}
           isFilled={dirtyFields['password']}
-          label={{ icon: <AiFillLock />, text: 'Senha' }}
+          error={errors['password']?.message}
+          label={{ text: 'Senha', icon: <AiFillLock /> }}
+          {...register('password')}
         />
 
         <Submit type='submit'>Entrar</Submit>

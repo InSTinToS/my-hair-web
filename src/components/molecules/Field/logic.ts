@@ -1,60 +1,42 @@
-import {
-  IUseFieldParams,
-  TOnInputBlur,
-  TOnInputChange,
-  TOnInputFocus
-} from './types'
+import { IUseFieldParams, TOnInputBlur, TOnInputFocus } from './types'
 
 import { useState } from 'react'
 
-export const useField = ({ type, name, register }: IUseFieldParams) => {
+export const useField = ({ type, onFocus, onBlur, label }: IUseFieldParams) => {
   const [isFocused, setIsFocused] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
 
-  const {
-    ref: hookFormRef,
-    onBlur: onHookFormBlur,
-    onChange: onHookFormChange
-  } = register(name)
-
-  const inputRef = hookFormRef
   const showEyes = type === 'password'
   const inputType =
     type === 'password' ? (showPassword ? 'text' : 'password') : type
-
   const showClosedEye = inputType !== 'password'
 
+  const eyeLabel = showClosedEye
+    ? `Esconder ${label?.text?.toLowerCase()}`
+    : `Mostrar ${label?.text?.toLowerCase()}`
+
   const onEyeClick = () => {
-    setShowPassword(true)
+    setShowPassword(prev => !prev)
   }
 
-  const onClosedEyeClick = () => {
-    setShowPassword(false)
-  }
-
-  const onInputFocus: TOnInputFocus = () => {
+  const onInputFocus: TOnInputFocus = event => {
+    onFocus && onFocus(event)
     setIsFocused(true)
   }
 
-  const onInputChange: TOnInputChange = event => {
-    onHookFormChange(event)
-  }
-
   const onInputBlur: TOnInputBlur = event => {
-    onHookFormBlur(event)
+    onBlur && onBlur(event)
     setIsFocused(false)
   }
 
   return {
+    eyeLabel,
     showEyes,
-    inputRef,
     isFocused,
     inputType,
     onEyeClick,
     onInputBlur,
     onInputFocus,
-    onInputChange,
-    showClosedEye,
-    onClosedEyeClick
+    showClosedEye
   }
 }

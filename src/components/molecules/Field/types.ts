@@ -1,27 +1,23 @@
 import { TInputProps } from 'types/react.types'
 
 import { ReactNode } from 'react'
-import { UseFormRegister } from 'react-hook-form'
-
-export type TOnInputBlur = TInputProps['onBlur']
-export type TOnInputFocus = TInputProps['onFocus']
-export type TOnInputChange = TInputProps['onChange']
 
 export interface IFieldProps extends TInputProps {
-  error?: any
   name: string
+  error?: string
   ariaName?: string
   isFilled?: boolean
-  register: UseFormRegister<any>
-  label?: {
-    text?: string
-    icon?: ReactNode
-    colorType?: 'fill' | 'stroke'
-  }
+  type?: TInputProps['type']
+  label?: { text?: string; icon?: ReactNode; colorType?: 'fill' | 'stroke' }
 }
 
 export interface IUseFieldParams {
+  label: IFieldProps['label']
   type: IFieldProps['type']
-  name: IFieldProps['name']
-  register: IFieldProps['register']
+  onBlur: IFieldProps['onBlur']
+  onFocus: IFieldProps['onFocus']
 }
+
+export type TOnInputBlur = IFieldProps['onBlur']
+
+export type TOnInputFocus = IFieldProps['onFocus']

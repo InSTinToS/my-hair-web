@@ -8,86 +8,95 @@ import { Alert } from 'components/atoms/Icon/icons/Alert'
 import { ClosedEye } from 'components/atoms/Icon/icons/ClosedEye'
 import { Eye } from 'components/atoms/Icon/icons/Eye'
 
-export const Field = ({
-  type,
-  name,
-  label,
-  error,
-  register,
-  isFilled,
-  className,
-  ...props
-}: IFieldProps) => {
-  const {
-    showEyes,
-    inputRef,
-    inputType,
-    isFocused,
-    onEyeClick,
-    onInputBlur,
-    onInputFocus,
-    showClosedEye,
-    onInputChange,
-    onClosedEyeClick
-  } = useField({ type, name, register })
+import { forwardRef } from 'react'
 
-  return (
-    <Style className={className} focused={isFocused} errored={!!error}>
-      {error && !isFocused ? (
-        <Tooltip
-          sideOffset={-12}
-          content={error.message}
-          trigger={
-            <IconWrapper errored={!!error}>
-              <Alert />
+export const Field = forwardRef<HTMLInputElement, IFieldProps>(
+  (
+    {
+      type,
+      name,
+      label,
+      error,
+      onBlur,
+      onFocus,
+      isFilled,
+      className,
+      ...props
+    },
+    ref
+  ) => {
+    const {
+      showEyes,
+      eyeLabel,
+      inputType,
+      isFocused,
+      onEyeClick,
+      onInputBlur,
+      onInputFocus,
+      showClosedEye
+    } = useField({ type, onBlur, onFocus, label })
+
+    return (
+      <Style className={className} focused={isFocused} errored={!!error}>
+        {error && !isFocused ? (
+          <Tooltip
+            content={error}
+            sideOffset={-12}
+            trigger={
+              <IconWrapper errored={!!error}>
+                <Alert />
+              </IconWrapper>
+            }
+          />
+        ) : (
+          label?.icon && (
+            <IconWrapper
+              as='label'
+              htmlFor={name}
+              filled={!!isFilled}
+              focused={isFocused}
+              fillType={label.colorType}
+            >
+              {label.icon}
             </IconWrapper>
-          }
-        />
-      ) : (
-        label?.icon && (
-          <IconWrapper
-            as='label'
-            htmlFor={name}
-            filled={!!isFilled}
-            focused={isFocused}
-            fillType={label.colorType}
-          >
-            {label.icon}
-          </IconWrapper>
-        )
-      )}
+          )
+        )}
 
-      {label?.text && <Label htmlFor={name}>{label.text}</Label>}
+        {label?.text && <Label htmlFor={name}>{label.text}</Label>}
 
-      <Input
-        id={name}
-        name={name}
-        ref={inputRef}
-        type={inputType}
-        errored={!!error}
-        spellCheck={false}
-        focused={isFocused}
-        onBlur={onInputBlur}
-        onFocus={onInputFocus}
-        onChange={onInputChange}
-        {...props}
-      />
-
-      {showEyes && (
-        <IconWrapper
-          type='button'
-          fillType='stroke'
+        <Input
+          ref={ref}
+          id={name}
+          name={name}
+          type={inputType}
           errored={!!error}
-          filled={!!isFilled}
-          focused={!!isFocused}
-        >
-          {showClosedEye ? (
-            <ClosedEye className='eye' onClick={onClosedEyeClick} />
-          ) : (
-            <Eye className='eye' onClick={onEyeClick} />
-          )}
-        </IconWrapper>
-      )}
-    </Style>
-  )
-}
+          spellCheck={false}
+          focused={isFocused}
+          onBlur={onInputBlur}
+          onFocus={onInputFocus}
+          {...props}
+        />
+
+        {showEyes && (
+          <IconWrapper
+            type='button'
+            fillType='stroke'
+            errored={!!error}
+            filled={!!isFilled}
+            onClick={onEyeClick}
+            focused={!!isFocused}
+            aria-label={eyeLabel}
+          >
+            {showClosedEye ? (
+              <ClosedEye className='eye' />
+            ) : (
+              <Eye className='eye' />
+            )}
+          </IconWrapper>
+        )}
+      </Style>
+    )
+  }
+)
+
+Field.displayName = 'Field'

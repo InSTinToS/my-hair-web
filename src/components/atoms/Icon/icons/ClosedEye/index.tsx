@@ -1,8 +1,10 @@
 import { Icon } from '../../'
 import { IIconProps } from '../../types'
 
-export const ClosedEye = ({ ...props }: IIconProps) => (
+export const ClosedEye = ({ title, ...props }: IIconProps) => (
   <Icon viewBox='0 0 22 18' {...props}>
+    <title>{title}</title>
+
     <path
       strokeWidth='2'
       strokeLinecap='round'
