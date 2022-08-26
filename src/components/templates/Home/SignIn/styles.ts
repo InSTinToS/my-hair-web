@@ -36,6 +36,8 @@ export const Form = styled('form', {
     'google submit' auto / 3fr 1fr
   `,
 
+  gridColumnGap: '$6',
+
   px: '$8',
   width: 'min(100%, $116)',
 
@@ -46,8 +48,9 @@ export const Form = styled('form', {
 
 export const Styles = styled('section', {
   width: '100%',
-  height: '80vh',
+  minHeight: '80vh',
   flexCenter: 'col',
+  py: '$40',
   theme: '$primary_500',
 
   '@lg': { width: '40%', height: '100vh' }

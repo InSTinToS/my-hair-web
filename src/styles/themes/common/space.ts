@@ -19,6 +19,7 @@ export const space = {
   14: pxToRem(44),
   16: pxToRem(48),
   20: pxToRem(52),
+  21: pxToRem(58),
   22: pxToRem(64),
   24: pxToRem(80),
   28: pxToRem(96),

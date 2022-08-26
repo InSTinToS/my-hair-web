@@ -2,8 +2,9 @@ import { styled } from 'styles'
 
 export const Styles = styled('button', {
   width: '100%',
-  height: '$22',
+  height: '$20',
   radius: '$3',
+  border: 'none',
 
   variants: {
     variant: {

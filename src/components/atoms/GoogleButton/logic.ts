@@ -4,8 +4,12 @@ import { useState } from 'react'
 export const useGoogleButton = () => {
   const [hover, setHover] = useState(false)
 
-  const stylesCSS: CSS = { color: hover ? 'black' : '$google_gray' }
   const googleCSS: CSS = { transform: `scale(${hover ? 1.1 : 1})` }
+
+  const stylesCSS: CSS = {
+    opacity: hover ? 1 : 0.9,
+    color: hover ? 'black' : '$google_gray'
+  }
 
   const onMouseEnter = () => {
     setHover(true)

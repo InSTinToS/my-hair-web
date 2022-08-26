@@ -5,17 +5,16 @@ import { AiFillLock } from 'react-icons/ai'
 import { BiUser } from 'react-icons/bi'
 
 export const SignIn = () => {
-  const { handleSubmit, errors, onSignInSubmit, register, dirtyFields } =
-    useSignIn()
+  const { errors, onSignInSubmit, register, dirtyFields } = useSignIn()
 
   return (
     <Styles>
-      <Form onSubmit={handleSubmit(onSignInSubmit)}>
+      <Form onSubmit={onSignInSubmit}>
         <Logo />
 
         <Email
-          error={errors['email']?.message}
           isFilled={dirtyFields['email']}
+          error={errors['email']?.message}
           label={{ text: 'E-mail', icon: <BiUser /> }}
           {...register('email')}
         />
