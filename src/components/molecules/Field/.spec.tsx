@@ -1,7 +1,10 @@
+import { useField } from './logic'
+
 import { Field } from '.'
-import { render, waitFor } from '@testing-library/react'
+import { render, renderHook, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'
+import { act } from 'react-dom/test-utils'
 import { BiUser } from 'react-icons/bi'
 
 describe('Field', () => {
@@ -40,5 +43,17 @@ describe('Field', () => {
     userEvent.click(eye)
 
     await waitFor(() => expect(input).toHaveAttribute('type', 'text'))
+  })
+})
+
+describe('useField', () => {
+  it('should be able to change between text and password using eye button', async () => {
+    const { result } = renderHook(() => useField({ type: 'password' }))
+
+    expect(result.current.inputType).toBe('password')
+
+    act(() => result.current.onEyeClick())
+
+    expect(result.current.inputType).toBe('text')
   })
 })

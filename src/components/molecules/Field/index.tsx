@@ -84,7 +84,7 @@ export const Field = forwardRef<HTMLInputElement, IFieldProps>(
             errored={!!error}
             filled={!!isFilled}
             onClick={onEyeClick}
-            focused={!!isFocused}
+            focused={isFocused}
             aria-label={eyeLabel}
           >
             {showClosedEye ? (

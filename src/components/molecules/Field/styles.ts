@@ -117,3 +117,8 @@ export const Style = styled('div', {
     }
   ]
 })
+
+Input.displayName = 'Input'
+Label.displayName = 'Label'
+IconWrapper.displayName = 'IconWrapper'
+Style.displayName = 'FieldStyle'
