@@ -1,14 +1,8 @@
 import { Icon } from '../..'
 import { IIconProps } from '../../types'
 
-import { composeClassName } from 'utils/composeClassName'
-
-export const Google = ({ className, ...props }: IIconProps) => (
-  <Icon
-    viewBox='0 0 39 39'
-    className={composeClassName('Google', className)}
-    {...props}
-  >
+export const Google = ({ ...props }: IIconProps) => (
+  <Icon viewBox='0 0 39 39' {...props}>
     <g fillRule='evenodd' clipRule='evenodd'>
       <path
         fill='#4285F4'

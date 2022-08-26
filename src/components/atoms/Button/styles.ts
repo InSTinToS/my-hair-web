@@ -7,11 +7,19 @@ export const Styles = styled('button', {
 
   variants: {
     variant: {
-      enable: { theme: '$tertiary_500' },
+      enable: {
+        cursor: 'pointer',
+        theme: '$tertiary_300',
+        transition: 'all 0.3s ease-in-out',
+
+        '&:hover': {
+          theme: '$tertiary_500'
+        }
+      },
       disabled: {
         color: '$tertiary_500_color',
-        border: 'solid 1px $tertiary_500_color',
-        backgroundColor: 'transparent'
+        backgroundColor: 'transparent',
+        border: 'solid 1px $tertiary_500_color'
       }
     }
   },

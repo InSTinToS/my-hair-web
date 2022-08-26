@@ -16,6 +16,16 @@ export const utils = {
     flexDirection: direction === 'col' ? 'column' : 'row'
   }),
 
+  autoFill: (textColor: string) => ({
+    '&:-webkit-autofill': {
+      '&, &:hover, &:active, &:focus': {
+        WebkitTextFillColor: `$colors${textColor}`,
+        WebkitBoxShadow: '0 0 0px 1000px inherit inset',
+        transition: 'background-color 5000s ease-in-out 0s'
+      }
+    }
+  }),
+
   ...size,
   ...radius,
   ...margin,

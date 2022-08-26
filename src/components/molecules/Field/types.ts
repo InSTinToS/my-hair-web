@@ -1,12 +1,23 @@
-import { InputHTMLAttributes, ReactNode } from 'react'
+import { TInputProps } from 'types/react.types'
 
-export interface IFieldProps extends InputHTMLAttributes<HTMLInputElement> {
+import { ReactNode } from 'react'
+
+export interface IFieldProps extends TInputProps {
   name: string
-  label?: string
+  error?: string
   ariaName?: string
-  labelIcon?: ReactNode
+  isFilled?: boolean
+  type?: TInputProps['type']
+  label?: { text?: string; icon?: ReactNode; colorType?: 'fill' | 'stroke' }
 }
 
 export interface IUseFieldParams {
-  type: IFieldProps['type']
+  label?: IFieldProps['label']
+  type?: IFieldProps['type']
+  onBlur?: IFieldProps['onBlur']
+  onFocus?: IFieldProps['onFocus']
 }
+
+export type TOnInputBlur = IFieldProps['onBlur']
+
+export type TOnInputFocus = IFieldProps['onFocus']

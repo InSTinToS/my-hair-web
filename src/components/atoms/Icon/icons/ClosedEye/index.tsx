@@ -1,14 +1,10 @@
 import { Icon } from '../../'
-import type { IIconProps } from '../../types'
+import { IIconProps } from '../../types'
 
-import { composeClassName } from 'utils/composeClassName'
+export const ClosedEye = ({ title, ...props }: IIconProps) => (
+  <Icon viewBox='0 0 22 18' {...props}>
+    <title>{title}</title>
 
-export const ClosedEye = ({ className, ...props }: IIconProps) => (
-  <Icon
-    viewBox='0 0 22 18'
-    className={composeClassName('ClosedEye', className)}
-    {...props}
-  >
     <path
       strokeWidth='2'
       strokeLinecap='round'

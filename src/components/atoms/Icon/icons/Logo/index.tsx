@@ -1,5 +1,5 @@
 import { Icon } from '../..'
-import type { IIconProps } from '../../types'
+import { IIconProps } from '../../types'
 
 import { composeClassName } from 'utils/composeClassName'
 

@@ -1,14 +1,8 @@
 import { Icon } from '../..'
 import type { IIconProps } from '../../types'
 
-import { composeClassName } from 'utils/composeClassName'
-
-export const Eye = ({ className, ...props }: IIconProps) => (
-  <Icon
-    className={composeClassName('Eye', className)}
-    viewBox='0 0 22 16'
-    {...props}
-  >
+export const Eye = ({ ...props }: IIconProps) => (
+  <Icon viewBox='0 0 22 16' {...props}>
     <path
       d='M19.8698 6.962C20.3438 7.582 20.3438 8.419 19.8698 9.038C18.3768 10.987 14.7948 15 10.6128 15C6.4308 15 2.8488 10.987 1.3558 9.038C1.12519 8.74113 1 8.37592 1 8C1 7.62408 1.12519 7.25887 1.3558 6.962C2.8488 5.013 6.4308 1 10.6128 1C14.7948 1 18.3768 5.013 19.8698 6.962V6.962Z'
       strokeWidth='2'

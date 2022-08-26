@@ -27,9 +27,9 @@ export const Location = () => {
           <Image
             priority
             layout='fill'
-            draggable={false}
             alt='barber shop'
             objectFit='cover'
+            draggable={false}
             src='/barberShop/1.jpg'
           />
         }
