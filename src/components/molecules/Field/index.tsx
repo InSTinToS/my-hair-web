@@ -29,34 +29,28 @@ export const Field = forwardRef<HTMLInputElement, IFieldProps>(
       showEyes,
       eyeLabel,
       inputType,
-      isFocused,
       onEyeClick,
+      fieldState,
       onInputBlur,
       onInputFocus,
       showClosedEye
-    } = useField({ type, onBlur, onFocus, label })
+    } = useField({ type, onBlur, onFocus, label, error, isFilled })
 
     return (
-      <Style className={className} focused={isFocused} errored={!!error}>
-        {error && !isFocused ? (
+      <Style className={className} state={fieldState}>
+        {error ? (
           <Tooltip
             content={error}
-            sideOffset={-12}
+            sideOffset={-4}
             trigger={
-              <IconWrapper errored={!!error}>
+              <IconWrapper state='errored'>
                 <Alert />
               </IconWrapper>
             }
           />
         ) : (
           label?.icon && (
-            <IconWrapper
-              as='label'
-              htmlFor={name}
-              filled={!!isFilled}
-              focused={isFocused}
-              fillType={label.colorType}
-            >
+            <IconWrapper as='label' htmlFor={name} state={fieldState}>
               {label.icon}
             </IconWrapper>
           )
@@ -69,9 +63,10 @@ export const Field = forwardRef<HTMLInputElement, IFieldProps>(
           id={name}
           name={name}
           type={inputType}
-          errored={!!error}
+          state={fieldState}
+          autoFocus={false}
           spellCheck={false}
-          focused={isFocused}
+          autoComplete='off'
           onBlur={onInputBlur}
           onFocus={onInputFocus}
           {...props}
@@ -79,12 +74,11 @@ export const Field = forwardRef<HTMLInputElement, IFieldProps>(
 
         {showEyes && (
           <IconWrapper
+            stroke
+            as='button'
             type='button'
-            fillType='stroke'
-            errored={!!error}
-            filled={!!isFilled}
+            state={fieldState}
             onClick={onEyeClick}
-            focused={isFocused}
             aria-label={eyeLabel}
           >
             {showClosedEye ? (

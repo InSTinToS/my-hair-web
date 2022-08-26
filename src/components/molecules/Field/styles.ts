@@ -6,20 +6,21 @@ export const Input = styled('input', {
   border: 'none',
   height: '100%',
 
-  color: '$tertiary_500_color',
   backgroundColor: 'transparent',
-  autoFill: '$tertiary_500_color',
+  autoFill: '$primary_500_text',
 
   '&:focus': { outline: 'none' },
 
   variants: {
-    errored: { true: { color: '$error_500_color' } },
-    focused: { true: { color: '$primary_500_text' } }
+    state: {
+      errored: { color: '$error_500_color' },
+      focused: { color: '$primary_500_text' },
+      filled: { color: '$tertiary_500_color' },
+      default: { color: '$primary_500_text' }
+    }
   },
 
-  compoundVariants: [
-    { focused: 'true', errored: 'true', css: { color: '$primary_500_text' } }
-  ]
+  defaultVariants: { state: 'default' }
 })
 
 export const Label = styled('label', {
@@ -34,7 +35,7 @@ export const Label = styled('label', {
   backgroundColor: '$primary_500_color'
 })
 
-export const IconWrapper = styled('button', {
+export const IconWrapper = styled('div', {
   flexCenter: 'row',
 
   p: '$5',
@@ -44,51 +45,42 @@ export const IconWrapper = styled('button', {
   minWidth: '$16',
 
   backgroundColor: 'transparent',
-
   '*': { size: '100%' },
 
   variants: {
-    fillType: {
-      fill: { '*': { fill: '$primary_500_text' } },
-      stroke: { '*': { stroke: '$primary_500_text' } }
+    state: {
+      errored: { '*': { fill: '$error_500_color' } },
+      focused: { '*': { fill: '$primary_500_text' } },
+      default: { '*': { fill: '$primary_500_text' } },
+      filled: { '*': { fill: '$tertiary_500_color' } }
     },
-    focused: { true: { '*': { fill: '$primary_500_text' } } },
-    filled: { true: { '*': { fill: '$tertiary_500_color' } } },
-    errored: { true: { '*': { fill: '$error_500_color' } } }
+    stroke: { true: {} }
   },
 
   compoundVariants: [
     {
-      filled: true,
-      focused: true,
-      fillType: 'fill',
-      css: { '*': { fill: '$primary_500_text' } }
-    },
-    {
-      filled: true,
-      focused: true,
-      fillType: 'stroke',
-      css: { '*': { stroke: '$primary_500_text', fill: 'none' } }
-    },
-    {
-      filled: true,
-      fillType: 'stroke',
+      stroke: true,
+      state: 'filled',
       css: { '*': { stroke: '$tertiary_500_color', fill: 'none' } }
     },
     {
-      focused: true,
-      fillType: 'stroke',
+      stroke: true,
+      state: 'errored',
+      css: { '*': { stroke: '$error_500_color', fill: 'none' } }
+    },
+    {
+      stroke: true,
+      state: 'default',
       css: { '*': { stroke: '$primary_500_text', fill: 'none' } }
     },
     {
-      errored: true,
-      focused: false,
-      fillType: 'stroke',
-      css: { '*': { stroke: '$error_500_color', fill: 'none' } }
+      stroke: true,
+      state: 'focused',
+      css: { '*': { stroke: '$primary_500_text', fill: 'none' } }
     }
   ],
 
-  defaultVariants: { fillType: 'fill' }
+  defaultVariants: { state: 'default' }
 })
 
 export const Style = styled('div', {
@@ -105,17 +97,17 @@ export const Style = styled('div', {
   borderStyle: 'solid',
 
   variants: {
-    focused: { true: { borderColor: '$tertiary_500_color' } },
-    errored: { true: { borderColor: '$error_500_color' } }
+    state: {
+      errored: { borderColor: '$error_500_color' },
+      filled: { borderColor: '$primary_500_text' },
+      default: { borderColor: '$primary_500_text' },
+      focused: { borderColor: '$tertiary_500_color' }
+    }
   },
 
-  compoundVariants: [
-    {
-      focused: 'true',
-      errored: 'true',
-      css: { borderColor: '$tertiary_500_color' }
-    }
-  ]
+  defaultVariants: { state: 'default' },
+
+  '*': {}
 })
 
 Input.displayName = 'Input'

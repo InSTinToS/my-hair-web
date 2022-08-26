@@ -1,10 +1,15 @@
+import { TOnSignInSubmit } from './types'
+
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
 const schema = yup.object().shape({
-  email: yup.string().email().required(),
-  password: yup.string().required()
+  password: yup.string().required('Informe uma senha'),
+  email: yup
+    .string()
+    .email('Informe um e-mail válido')
+    .required('Informe um e-mail')
 })
 
 export const useSignIn = () => {
@@ -18,9 +23,11 @@ export const useSignIn = () => {
     defaultValues: { email: '', password: '' }
   })
 
-  const onSignInSubmit = (data: any) => {
-    console.log(data)
+  const onSignInSubmit: TOnSignInSubmit = event => {
+    handleSubmit(data => {
+      console.log(data)
+    })(event)
   }
 
-  return { onSignInSubmit, register, handleSubmit, dirtyFields, errors }
+  return { onSignInSubmit, register, dirtyFields, errors }
 }

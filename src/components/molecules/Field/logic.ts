@@ -2,7 +2,14 @@ import { IUseFieldParams, TOnInputBlur, TOnInputFocus } from './types'
 
 import { useState } from 'react'
 
-export const useField = ({ type, onFocus, onBlur, label }: IUseFieldParams) => {
+export const useField = ({
+  type,
+  error,
+  label,
+  onBlur,
+  onFocus,
+  isFilled
+}: IUseFieldParams) => {
   const [isFocused, setIsFocused] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
 
@@ -14,6 +21,12 @@ export const useField = ({ type, onFocus, onBlur, label }: IUseFieldParams) => {
   const eyeLabel = showClosedEye
     ? `Esconder ${label?.text?.toLowerCase()}`
     : `Mostrar ${label?.text?.toLowerCase()}`
+
+  let fieldState: 'default' | 'focused' | 'filled' | 'errored' = 'default'
+
+  fieldState = isFilled ? 'filled' : fieldState
+  fieldState = error ? 'errored' : fieldState
+  fieldState = isFocused ? 'focused' : fieldState
 
   const onEyeClick = () => {
     setShowPassword(prev => !prev)
@@ -35,6 +48,7 @@ export const useField = ({ type, onFocus, onBlur, label }: IUseFieldParams) => {
     isFocused,
     inputType,
     onEyeClick,
+    fieldState,
     onInputBlur,
     onInputFocus,
     showClosedEye

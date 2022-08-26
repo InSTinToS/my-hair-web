@@ -12,10 +12,12 @@ export interface IFieldProps extends TInputProps {
 }
 
 export interface IUseFieldParams {
-  label?: IFieldProps['label']
   type?: IFieldProps['type']
+  label?: IFieldProps['label']
+  error?: IFieldProps['error']
   onBlur?: IFieldProps['onBlur']
   onFocus?: IFieldProps['onFocus']
+  isFilled?: IFieldProps['isFilled']
 }
 
 export type TOnInputBlur = IFieldProps['onBlur']
