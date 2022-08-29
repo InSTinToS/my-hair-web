@@ -1,10 +1,10 @@
-import { Button } from 'components/atoms/Button'
-import { GoogleButton } from 'components/atoms/GoogleButton'
-import { Logo as LogoIcon } from 'components/atoms/Icon/icons/Logo'
+import { styled } from '@app/styles'
 
-import { Field } from 'components/molecules/Field'
+import { Button } from '@app/components/atoms/Button'
+import { GoogleButton } from '@app/components/atoms/GoogleButton'
+import { Logo as LogoIcon } from '@app/components/atoms/Icon/icons/Logo'
 
-import { styled } from 'styles'
+import { Field } from '@app/components/molecules/Field'
 
 export const Google = styled(GoogleButton, {
   gridArea: 'google',

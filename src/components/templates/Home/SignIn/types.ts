@@ -1,3 +1,3 @@
-import { TFormProps } from 'types/react.types'
+import { TFormProps } from '@app/types/react.types'
 
 export type TOnSignInSubmit = TFormProps['onSubmit']

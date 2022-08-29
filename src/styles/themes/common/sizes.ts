@@ -1,4 +1,4 @@
-import { pxToRem } from 'utils/pxToRem'
+import { pxToRem } from '@app/utils/pxToRem'
 
 export const sizes = {
   px: '1px',

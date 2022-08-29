@@ -1,7 +1,7 @@
 import { Icon } from '../..'
 import { IIconProps } from '../../types'
 
-import { composeClassName } from 'utils/composeClassName'
+import { composeClassName } from '@app/utils/composeClassName'
 
 export const Logo = ({ className, ...props }: IIconProps) => (
   <Icon

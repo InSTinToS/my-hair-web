@@ -39,5 +39,7 @@ export const globalStyles = globalCss({
     fontFamily: '$roboto',
     boxSizing: 'border-box',
     colorAutoFill: 'red'
-  }
+  },
+
+  body: { theme: '$primary_500' }
 })

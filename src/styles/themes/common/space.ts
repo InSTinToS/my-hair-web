@@ -1,4 +1,4 @@
-import { pxToRem } from 'utils/pxToRem'
+import { pxToRem } from '@app/utils/pxToRem'
 
 export const space = {
   px: '1px',

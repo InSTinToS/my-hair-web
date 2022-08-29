@@ -2,10 +2,10 @@ import type { ICubeExport, IUseCubeParams, TDynamicCSSKeys } from './types'
 
 import { useCubeAnimations } from './animations'
 
-import { useTabFocus } from 'hooks/useTabFocus'
-import { useWindowSize } from 'hooks/useWindowSize'
+import { useTabFocus } from '@app/hooks/useTabFocus'
+import { useWindowSize } from '@app/hooks/useWindowSize'
 
-import { TDynamicCSS } from 'types/stitches.types'
+import { TDynamicCSS } from '@app/types/stitches.types'
 
 import { PanHandlers } from 'framer-motion'
 import { useEffect, useImperativeHandle, useRef, useState } from 'react'

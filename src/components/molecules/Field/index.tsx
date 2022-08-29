@@ -4,9 +4,9 @@ import { IFieldProps } from './types'
 
 import { Tooltip } from '../Tooltip'
 
-import { Alert } from 'components/atoms/Icon/icons/Alert'
-import { ClosedEye } from 'components/atoms/Icon/icons/ClosedEye'
-import { Eye } from 'components/atoms/Icon/icons/Eye'
+import { Alert } from '@app/components/atoms/Icon/icons/Alert'
+import { ClosedEye } from '@app/components/atoms/Icon/icons/ClosedEye'
+import { Eye } from '@app/components/atoms/Icon/icons/Eye'
 
 import { forwardRef } from 'react'
 
@@ -63,9 +63,9 @@ export const Field = forwardRef<HTMLInputElement, IFieldProps>(
           id={name}
           name={name}
           type={inputType}
-          state={fieldState}
           autoFocus={false}
           spellCheck={false}
+          state={fieldState}
           autoComplete='off'
           onBlur={onInputBlur}
           onFocus={onInputFocus}

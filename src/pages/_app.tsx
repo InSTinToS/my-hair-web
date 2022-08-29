@@ -1,6 +1,6 @@
-import type { TAppPropsWithLayout } from 'types/next.types'
+import type { TAppPropsWithLayout } from '@app/types/next.types'
 
-import { GlobalProvider } from 'components/providers/GlobalProvider'
+import { GlobalProvider } from '@app/components/providers/GlobalProvider'
 
 const MyApp = ({ Component, pageProps }: TAppPropsWithLayout) => {
   const getLayout = Component.getLayout || (page => page)

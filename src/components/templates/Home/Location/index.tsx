@@ -1,9 +1,9 @@
 import { useLocation } from './logic'
 import { ArrowButton, BackgroundImages } from './styles'
 
-import { Cube } from 'components/molecules/Cube'
+import { theme } from '@app/styles'
 
-import { theme } from 'styles'
+import { Cube } from '@app/components/molecules/Cube'
 
 import Image from 'next/image'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'

@@ -1,4 +1,4 @@
-import { styled } from 'styles'
+import { styled } from '@app/styles'
 
 export const ArrowButton = styled('button', {
   zIndex: 2,

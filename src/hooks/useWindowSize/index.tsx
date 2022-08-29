@@ -1,6 +1,6 @@
 import { IWindowSize } from './types'
 
-import { TTimer } from 'types/timer.types'
+import { TTimer } from '@app/types/react.types'
 
 import { useEffect, useState } from 'react'
 

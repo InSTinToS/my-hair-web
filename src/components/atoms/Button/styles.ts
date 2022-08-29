@@ -1,4 +1,4 @@
-import { styled } from 'styles'
+import { styled } from '@app/styles'
 
 export const Styles = styled('button', {
   width: '100%',

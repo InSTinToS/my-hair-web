@@ -1,4 +1,4 @@
-import { globalStyles } from 'styles'
+import { globalStyles } from '@app/styles'
 
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 

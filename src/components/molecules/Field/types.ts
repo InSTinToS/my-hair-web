@@ -1,4 +1,4 @@
-import { TInputProps } from 'types/react.types'
+import { TInputProps } from '@app/types/react.types'
 
 import { ReactNode } from 'react'
 

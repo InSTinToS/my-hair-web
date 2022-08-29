@@ -1,4 +1,4 @@
-import { TReducer } from 'types/redux.types'
+import { TReducer } from '@app/types/redux.types'
 
 export const update: TReducer<any, any> = (state, { payload }) => {
   const prev = state.products

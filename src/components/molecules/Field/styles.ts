@@ -1,4 +1,4 @@
-import { styled } from 'styles'
+import { styled } from '@app/styles'
 
 export const Input = styled('input', {
   px: '$2',
@@ -92,8 +92,8 @@ export const Style = styled('div', {
   radius: '$3',
   height: '$22',
   width: '100%',
-  minWidth: '$64',
   borderWidth: 1,
+  minWidth: '$64',
   borderStyle: 'solid',
 
   variants: {
@@ -109,8 +109,3 @@ export const Style = styled('div', {
 
   '*': {}
 })
-
-Input.displayName = 'Input'
-Label.displayName = 'Label'
-IconWrapper.displayName = 'IconWrapper'
-Style.displayName = 'FieldStyle'

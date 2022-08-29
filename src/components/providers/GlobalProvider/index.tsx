@@ -3,7 +3,7 @@ import type { IGlobalProviderProps } from './types'
 import { RadixProvider } from '../Radix'
 import { ThemeProvider } from '../ThemeProvider'
 
-import { store } from 'store'
+import { store } from '@app/store'
 
 import { Provider as ReduxProvider } from 'react-redux'
 
