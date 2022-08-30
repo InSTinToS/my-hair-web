@@ -23,5 +23,5 @@ export const Styles = styled('button', {
 
   transition: 'all 0.3s ease-in-out',
 
-  backgroundColor: '$google_white'
+  backgroundColor: '$google_1'
 })

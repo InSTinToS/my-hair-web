@@ -41,5 +41,5 @@ export const globalStyles = globalCss({
     colorAutoFill: 'red'
   },
 
-  body: { theme: '$primary_500' }
+  body: { theme: '$secondary_1' }
 })

@@ -24,7 +24,7 @@ export const Logo = styled(LogoIcon, {
   flexCenter: 'row',
   alignSelf: 'center',
   justifySelf: 'center',
-  fill: '$tertiary_500_color'
+  fill: '$primary_1'
 })
 
 export const Form = styled('form', {
@@ -51,7 +51,7 @@ export const Styles = styled('section', {
   minHeight: '80vh',
   flexCenter: 'col',
   py: '$40',
-  theme: '$primary_500',
+  theme: '$secondary_1',
 
   '@lg': { width: '40%', height: '100vh' }
 })

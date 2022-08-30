@@ -25,7 +25,7 @@ export const Face = styled(motion.li, {
   size: '100%',
   userSelect: 'none',
   position: 'absolute',
-  backgroundColor: '$primary_500_color',
+  backgroundColor: '$secondary_1',
   '&.right': { transform: 'translateX(50%) rotateY(90deg)' },
   '&.left': { transform: 'translateX(-50%) rotateY(-90deg)' }
 })

@@ -16,7 +16,7 @@ export const Location = () => {
       <ArrowButton type='button' direction='left' onClick={onLeftArrowClick}>
         <FiChevronLeft
           size={theme.space['12'].value}
-          color={theme.colors.secondary_500_text.value}
+          color={theme.colors.tertiary_1_contrast.value}
         />
       </ArrowButton>
 
@@ -65,7 +65,7 @@ export const Location = () => {
       <ArrowButton type='button' onClick={onRightArrowClick}>
         <FiChevronRight
           size={theme.space['12'].value}
-          color={theme.colors.secondary_500_text.value}
+          color={theme.colors.tertiary_1_contrast.value}
         />
       </ArrowButton>
     </BackgroundImages>

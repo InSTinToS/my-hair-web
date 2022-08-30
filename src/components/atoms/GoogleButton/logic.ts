@@ -8,7 +8,7 @@ export const useGoogleButton = () => {
 
   const stylesCSS: CSS = {
     opacity: hover ? 1 : 0.9,
-    color: hover ? 'black' : '$google_gray'
+    theme: hover ? '$google_1' : '$google_2'
   }
 
   const onMouseEnter = () => {

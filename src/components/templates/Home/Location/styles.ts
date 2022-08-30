@@ -15,7 +15,7 @@ export const BackgroundImages = styled('aside', {
   height: '100vh',
   flexCenter: 'row',
   position: 'relative',
-  backgroundColor: '$secondary_500_color',
+  backgroundColor: '$tertiary_1',
 
   '@lg': { width: '66vw' }
 })

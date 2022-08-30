@@ -5,8 +5,8 @@ import { size } from './size'
 
 export const utils = {
   theme: (theme: string) => ({
-    color: `${theme}_text`,
-    backgroundColor: `${theme}_color`
+    color: `${theme}_contrast`,
+    backgroundColor: `${theme}`
   }),
 
   flexCenter: (direction: 'row' | 'col') => ({
