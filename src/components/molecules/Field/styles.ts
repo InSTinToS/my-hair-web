@@ -1,22 +1,22 @@
 import { styled } from '@app/styles'
 
 export const Input = styled('input', {
-  px: '$2',
+  px: '$4',
   width: '100%',
   border: 'none',
   height: '100%',
 
   backgroundColor: 'transparent',
-  autoFill: '$secondary_1_contrast',
+  autoFill: '$secondary_contrast_1',
 
   '&:focus': { outline: 'none' },
 
   variants: {
     state: {
       errored: { color: '$error_1' },
-      focused: { color: '$secondary_1_contrast' },
       filled: { color: '$primary_1' },
-      default: { color: '$secondary_1_contrast' }
+      focused: { color: '$secondary_contrast_1' },
+      default: { color: '$secondary_contrast_1' }
     }
   },
 
@@ -51,8 +51,8 @@ export const IconWrapper = styled('div', {
   variants: {
     state: {
       errored: { '*': { fill: '$error_1' } },
-      focused: { '*': { fill: '$secondary_1_contrast' } },
-      default: { '*': { fill: '$secondary_1_contrast' } },
+      focused: { '*': { fill: '$secondary_contrast_1' } },
+      default: { '*': { fill: '$secondary_contrast_1' } },
       filled: { '*': { fill: '$primary_1' } }
     },
     stroke: { true: {} }
@@ -72,12 +72,12 @@ export const IconWrapper = styled('div', {
     {
       stroke: true,
       state: 'default',
-      css: { '*': { stroke: '$secondary_1_contrast', fill: 'none' } }
+      css: { '*': { stroke: '$secondary_contrast_1', fill: 'none' } }
     },
     {
       stroke: true,
       state: 'focused',
-      css: { '*': { stroke: '$secondary_1_contrast', fill: 'none' } }
+      css: { '*': { stroke: '$secondary_contrast_1', fill: 'none' } }
     }
   ],
 
@@ -91,17 +91,23 @@ export const Style = styled('div', {
   alignItems: 'center',
 
   radius: '$3',
-  height: '$22',
   width: '100%',
   borderWidth: 1,
-  minWidth: '$64',
   borderStyle: 'solid',
 
   variants: {
+    onlyBottom: {
+      true: {
+        radius: '0px',
+        borderTopWidth: '0px',
+        borderLeftWidth: '0px',
+        borderRightWidth: '0px'
+      }
+    },
     state: {
       errored: { borderColor: '$error_1' },
-      filled: { borderColor: '$secondary_1_contrast' },
-      default: { borderColor: '$secondary_1_contrast' },
+      filled: { borderColor: '$secondary_contrast_1' },
+      default: { borderColor: '$secondary_contrast_1' },
       focused: { borderColor: '$primary_1' }
     }
   },

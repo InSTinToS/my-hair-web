@@ -1,64 +1,70 @@
 import { styled } from '@app/styles'
 
-const primaryCompounds = [
-  {
-    theme: 'primary',
-    state: 'enable',
-    css: { theme: '$primary_2', '&:hover': { theme: '$primary_1' } }
-  },
-  {
-    theme: 'primary',
-    state: 'disabled',
-    css: { color: '$primary_1', border: 'solid 1px $primary_1' }
-  }
-]
+import { CSS } from '@stitches/react'
 
-const successCompounds = [
-  {
-    theme: 'success',
-    state: 'enable',
-    css: { theme: '$success_2', '&:hover': { theme: '$success_1' } }
-  },
-  {
-    theme: 'success',
-    state: 'disabled',
-    css: { color: '$success_1', border: 'solid 1px $success_1' }
-  }
-]
+const invisibleVariant = (theme: string): CSS => ({
+  color: `$${theme}_2`,
 
-const errorCompounds = [
-  {
-    theme: 'error',
-    state: 'enable',
-    css: { theme: '$error_2', '&:hover': { theme: '$error_1' } }
-  },
-  {
-    theme: 'error',
-    state: 'disabled',
-    css: { color: '$error_1', border: 'solid 1px $error_1' }
-  }
-]
+  '&:hover': { color: `$${theme}_1` }
+})
+
+const themeVariant = (theme: string): CSS => ({
+  theme: `$${theme}_2`,
+  border: `solid 1px $${theme}_1`,
+
+  '&:hover': { theme: `$${theme}_1` }
+})
 
 export const Style = styled('button', {
-  width: '100%',
-  height: '$20',
-  radius: '$3',
+  flexCenter: 'row',
 
+  p: '$5',
   border: 'none',
 
-  variants: {
-    state: {
-      disabled: { backgroundColor: 'transparent' },
-      enable: { cursor: 'pointer', transition: 'all 0.3s ease-in-out' }
-    },
-    theme: { primary: {}, success: {}, error: {} }
+  fontSize: '$3',
+  cursor: 'pointer',
+
+  backgroundColor: 'transparent',
+
+  '&:disabled': {
+    cursor: 'default',
+
+    backgroundColor: 'transparent',
+
+    '&:hover': { backgroundColor: 'transparent' }
   },
 
-  compoundVariants: [
-    ...primaryCompounds,
-    ...successCompounds,
-    ...errorCompounds
-  ],
+  variants: {
+    radius: {
+      none: { radius: '0px' },
+      normal: { radius: '$3' }
+    },
+    invisible: {
+      primary: invisibleVariant('primary'),
+      primary_contrast: invisibleVariant('primary_contrast'),
 
-  defaultVariants: { state: 'enable', theme: 'primary' }
+      secondary: invisibleVariant('secondary'),
+      secondary_contrast: invisibleVariant('secondary_contrast'),
+
+      tertiary: invisibleVariant('tertiary'),
+      tertiary_contrast: invisibleVariant('tertiary_contrast'),
+
+      info: invisibleVariant('info'),
+      info_contrast: invisibleVariant('info_contrast'),
+
+      error: invisibleVariant('error'),
+      error_contrast: invisibleVariant('error_contrast'),
+
+      success: invisibleVariant('success'),
+      success_contrast: invisibleVariant('success_contrast')
+    },
+    theme: {
+      info: themeVariant('info'),
+      error: themeVariant('error'),
+      primary: themeVariant('primary'),
+      success: themeVariant('success')
+    }
+  },
+
+  defaultVariants: { radius: 'normal' }
 })

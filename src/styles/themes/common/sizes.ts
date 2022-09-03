@@ -3,6 +3,13 @@ import { pxToRem } from '@app/utils/pxToRem'
 export const sizes = {
   px: '1px',
   auto: 'auto',
+  xs: pxToRem(320),
+  sm: pxToRem(640),
+  md: pxToRem(768),
+  lg: pxToRem(1024),
+  xl: pxToRem(1280),
+  '2xl': pxToRem(1536),
+  '3xl': pxToRem(1920),
   1: pxToRem(2),
   2: pxToRem(4),
   3: pxToRem(6),

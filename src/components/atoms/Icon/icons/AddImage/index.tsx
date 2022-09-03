@@ -1,7 +1,7 @@
 import { Icon } from '../..'
 import { IIconProps } from '../../types'
 
-export const Plus = ({ ...props }: IIconProps) => {
+export const AddImage = ({ ...props }: IIconProps) => {
   return (
     <Icon
       fill='none'

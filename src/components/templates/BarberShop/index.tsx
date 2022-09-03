@@ -1,38 +1,23 @@
-import {
-  Button,
-  Field,
-  Header,
-  Location,
-  Map,
-  Plus,
-  Styles,
-  Title
-} from './styles'
+import { File, Header, Style } from './styles'
+
+import { Locations } from './sections/Locations'
+
+import { AddImage } from '@app/components/atoms/Icon/icons/AddImage'
 
 export const BarberShop = () => {
   return (
-    <Styles>
-      <Location>
-        <Header>
-          <Map />
+    <>
+      <Header>
+        <File htmlFor='thumbnail'>
+          <input type='file' name='thumbnail' />
 
-          <Title>Adicionar Localização</Title>
+          <AddImage size='lg' fill='primary_contrast' />
+        </File>
+      </Header>
 
-          <Plus />
-        </Header>
-
-        <Field placeholder='País' name='country' />
-
-        <Field placeholder='Estado' name='state' />
-
-        <Field placeholder='Rua' name='street' />
-
-        <Field placeholder='Número' name='number' />
-
-        <Field placeholder='Link no mapa' name='link' />
-
-        <Button>Adicionar/alterar</Button>
-      </Location>
-    </Styles>
+      <Style>
+        <Locations />
+      </Style>
+    </>
   )
 }

@@ -5,11 +5,11 @@ const primary = {
   primary_4: '#9686BC',
   primary_5: '#A597C5',
 
-  primary_1_contrast: '#FFFFFF',
-  primary_2_contrast: '#E5E5E5',
-  primary_3_contrast: '#CCCCCC',
-  primary_4_contrast: '#B2B2B2',
-  primary_5_contrast: '#999999'
+  primary_contrast_1: '#FFFFFF',
+  primary_contrast_2: '#E5E5E5',
+  primary_contrast_3: '#CCCCCC',
+  primary_contrast_4: '#B2B2B2',
+  primary_contrast_5: '#999999'
 }
 
 const secondary = {
@@ -19,25 +19,25 @@ const secondary = {
   secondary_4: '#4F4F4F',
   secondary_5: '#686868',
 
-  secondary_1_contrast: '#FFFFFF',
-  secondary_2_contrast: '#E5E5E5',
-  secondary_3_contrast: '#CCCCCC',
-  secondary_4_contrast: '#B2B2B2',
-  secondary_5_contrast: '#999999'
+  secondary_contrast_1: '#FFFFFF',
+  secondary_contrast_2: '#E5E5E5',
+  secondary_contrast_3: '#CCCCCC',
+  secondary_contrast_4: '#B2B2B2',
+  secondary_contrast_5: '#999999'
 }
 
 const tertiary = {
-  tertiary_1: '#202020',
-  tertiary_2: '#373737',
-  tertiary_3: '#4C4C4C',
-  tertiary_4: '#636363',
-  tertiary_5: '#797979',
+  tertiary_1: '#0B0B0B',
+  tertiary_2: '#242424',
+  tertiary_3: '#3C3C3C',
+  tertiary_4: '#555555',
+  tertiary_5: '#6D6D6D',
 
-  tertiary_1_contrast: '#FFFFFF',
-  tertiary_2_contrast: '#E5E5E5',
-  tertiary_3_contrast: '#CCCCCC',
-  tertiary_4_contrast: '#B2B2B2',
-  tertiary_5_contrast: '#999999'
+  tertiary_contrast_1: '#FFFFFF',
+  tertiary_contrast_2: '#E5E5E5',
+  tertiary_contrast_3: '#CCCCCC',
+  tertiary_contrast_4: '#B2B2B2',
+  tertiary_contrast_5: '#999999'
 }
 
 const info = {
@@ -47,11 +47,11 @@ const info = {
   info_4: '#57C9EE',
   info_5: '#6FD1F0',
 
-  info_1_contrast: '#FFFFFF',
-  info_2_contrast: '#E5E5E5',
-  info_3_contrast: '#CCCCCC',
-  info_4_contrast: '#B2B2B2',
-  info_5_contrast: '#999999'
+  info_contrast_1: '#FFFFFF',
+  info_contrast_2: '#E5E5E5',
+  info_contrast_3: '#CCCCCC',
+  info_contrast_4: '#B2B2B2',
+  info_contrast_5: '#999999'
 }
 
 const success = {
@@ -61,11 +61,11 @@ const success = {
   success_4: '#6FDFC4',
   success_5: '#83E3CC',
 
-  success_1_contrast: '#FFFFFF',
-  success_2_contrast: '#E5E5E5',
-  success_3_contrast: '#CCCCCC',
-  success_4_contrast: '#B2B2B2',
-  success_5_contrast: '#999999'
+  success_contrast_1: '#FFFFFF',
+  success_contrast_2: '#E5E5E5',
+  success_contrast_3: '#CCCCCC',
+  success_contrast_4: '#B2B2B2',
+  success_contrast_5: '#999999'
 }
 
 const error = {
@@ -75,19 +75,19 @@ const error = {
   error_4: '#FF7D7D',
   error_5: '#FF8F8F',
 
-  error_1_contrast: '#FFFFFF',
-  error_2_contrast: '#E5E5E5',
-  error_3_contrast: '#CCCCCC',
-  error_4_contrast: '#B2B2B2',
-  error_5_contrast: '#999999'
+  error_contrast_1: '#FFFFFF',
+  error_contrast_2: '#E5E5E5',
+  error_contrast_3: '#CCCCCC',
+  error_contrast_4: '#B2B2B2',
+  error_contrast_5: '#999999'
 }
 
 const google = {
   google_1: '#FFFFFF',
   google_2: '#F9F9F9',
 
-  google_1_contrast: '#000000',
-  google_2_contrast: '#999999'
+  google_contrast_1: '#000000',
+  google_contrast_2: '#999999'
 }
 
 export const colors = {

@@ -8,7 +8,6 @@ export const Icon = ({
   desc,
   href,
   title,
-  color,
   children,
   labelledBy,
   ...props
@@ -18,7 +17,6 @@ export const Icon = ({
   return (
     <IconStyle
       role='img'
-      color={color}
       aria-labelledby={ariaLabelledBy}
       xmlns='http://www.w3.org/2000/svg'
       {...props}

@@ -21,6 +21,8 @@ export const Field = forwardRef<HTMLInputElement, IFieldProps>(
       onFocus,
       isFilled,
       className,
+      grid = false,
+      onlyBottom = false,
       ...props
     },
     ref
@@ -37,7 +39,15 @@ export const Field = forwardRef<HTMLInputElement, IFieldProps>(
     } = useField({ type, onBlur, onFocus, label, error, isFilled })
 
     return (
-      <Style className={className} state={fieldState}>
+      <Style
+        state={fieldState}
+        className={className}
+        onlyBottom={onlyBottom}
+        css={{
+          gridArea: grid ? name : undefined,
+          height: label?.text ? '$22' : '$16'
+        }}
+      >
         {error ? (
           <Tooltip
             content={error}
