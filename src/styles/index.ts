@@ -40,5 +40,11 @@ export const globalStyles = globalCss({
     boxSizing: 'border-box'
   },
 
-  body: { theme: '$secondary' }
+  body: {
+    theme: '$secondary',
+    button: {
+      backgroundColor: 'transparent',
+      border: 'none'
+    }
+  }
 })

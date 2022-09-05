@@ -11,23 +11,6 @@ export default {
     theme: {
       control: { type: 'radio' },
       options: ['primary', 'success', 'error']
-    },
-    invisible: {
-      control: { type: 'radio' },
-      options: [
-        'primary',
-        'primary_contrast',
-        'secondary',
-        'secondary_contrast',
-        'tertiary',
-        'tertiary_contrast',
-        'info',
-        'info_contrast',
-        'error',
-        'error_contrast',
-        'success',
-        'success_contrast'
-      ]
     }
   }
 } as ComponentMeta<typeof Button>

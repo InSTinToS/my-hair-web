@@ -1,12 +1,10 @@
 import { styled } from '@app/styles'
 
 export const Title = styled('h2', {
-  my: '$4',
-
   fontSize: '$4',
   color: '$tertiary_contrast_1',
 
-  '@sm': { mx: '$10' }
+  mx: '$10'
 })
 
 export const Style = styled('header', {

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
 
-export interface IAddSectionProps {
+export interface IAddContentProps {
   children: ReactNode
 }
