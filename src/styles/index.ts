@@ -43,8 +43,8 @@ export const globalStyles = globalCss({
   body: {
     theme: '$secondary',
     button: {
-      backgroundColor: 'transparent',
-      border: 'none'
+      border: 'none',
+      backgroundColor: 'transparent'
     }
   }
 })

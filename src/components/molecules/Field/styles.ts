@@ -11,6 +11,8 @@ export const Input = styled('input', {
 
   '&:focus': { outline: 'none' },
 
+  fontSize: '$3',
+
   variants: {
     state: {
       errored: { color: '$error_1' },

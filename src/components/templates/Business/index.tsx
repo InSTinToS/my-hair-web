@@ -2,9 +2,9 @@ import { File, Header, Style } from './styles'
 
 import { AddImage } from '@app/components/atoms/Icon/icons/AddImage'
 
-import { Locations } from '@app/components/templates/BarberShop/Locations'
+import { Locations } from '@app/components/templates/Business/Locations'
 
-export const BarberShop = () => (
+export const Business = () => (
   <>
     <Header>
       <File htmlFor='thumbnail'>
