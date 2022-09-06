@@ -1,6 +1,6 @@
-import { Styles } from './styles'
+import { Style } from './styles'
 import { IButtonProps } from './types'
 
 export const Button = ({ children, ...props }: IButtonProps) => (
-  <Styles {...props}>{children}</Styles>
+  <Style {...props}>{children}</Style>
 )

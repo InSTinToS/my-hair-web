@@ -5,7 +5,7 @@ import { SignIn } from './SignIn'
 
 import Head from 'next/head'
 
-const Home = () => (
+export const Home = () => (
   <>
     <Head>
       <title>Home</title>
@@ -24,5 +24,3 @@ const Home = () => (
     <section></section>
   </>
 )
-
-export default Home

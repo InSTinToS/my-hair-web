@@ -1,6 +1,6 @@
+import { Field } from '.'
 import { useField } from './logic'
 
-import { Field } from '.'
 import { render, renderHook, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import React from 'react'

@@ -4,11 +4,14 @@ import { radius } from './radius'
 import { size } from './size'
 
 export const utils = {
-  theme: (theme: string) => ({
-    color: `${theme}_text`,
-    backgroundColor: `${theme}_color`
-  }),
+  theme: (theme: string) => {
+    const [color, scale] = theme.split('_')
 
+    return {
+      color: `${color}_contrast_${scale || 1}`,
+      backgroundColor: `${color}_${scale || 1}`
+    }
+  },
   flexCenter: (direction: 'row' | 'col') => ({
     display: 'flex',
     alignItems: 'center',

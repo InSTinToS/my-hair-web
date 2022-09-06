@@ -1,29 +1,45 @@
-import { styled } from 'styles'
+import { styled } from '@app/styles'
 
-export const Styles = styled('button', {
-  width: '100%',
-  height: '$20',
-  radius: '$3',
+import { CSS } from '@stitches/react'
+
+const themeVariant = (theme: string): CSS => ({
+  theme: `$${theme}_2`,
+  border: `solid 1px $${theme}_1`,
+
+  '&:hover': { theme: `$${theme}_1` }
+})
+
+export const Style = styled('button', {
+  flexCenter: 'row',
+
+  p: '$5',
   border: 'none',
 
-  variants: {
-    variant: {
-      enable: {
-        cursor: 'pointer',
-        theme: '$tertiary_300',
-        transition: 'all 0.3s ease-in-out',
+  fontSize: '$3',
+  cursor: 'pointer',
 
-        '&:hover': {
-          theme: '$tertiary_500'
-        }
-      },
-      disabled: {
-        color: '$tertiary_500_color',
-        backgroundColor: 'transparent',
-        border: 'solid 1px $tertiary_500_color'
-      }
+  backgroundColor: 'transparent',
+
+  '&:disabled': {
+    cursor: 'default',
+
+    backgroundColor: 'transparent',
+
+    '&:hover': { backgroundColor: 'transparent' }
+  },
+
+  variants: {
+    radius: {
+      none: { radius: '0px' },
+      normal: { radius: '$3' }
+    },
+    theme: {
+      info: themeVariant('info'),
+      error: themeVariant('error'),
+      primary: themeVariant('primary'),
+      success: themeVariant('success')
     }
   },
 
-  defaultVariants: { variant: 'enable' }
+  defaultVariants: { radius: 'normal' }
 })

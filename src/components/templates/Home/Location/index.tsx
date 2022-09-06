@@ -1,9 +1,9 @@
 import { useLocation } from './logic'
 import { ArrowButton, BackgroundImages } from './styles'
 
-import { Cube } from 'components/molecules/Cube'
+import { theme } from '@app/styles'
 
-import { theme } from 'styles'
+import { Cube } from '@app/components/molecules/Cube'
 
 import Image from 'next/image'
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
@@ -16,7 +16,7 @@ export const Location = () => {
       <ArrowButton type='button' direction='left' onClick={onLeftArrowClick}>
         <FiChevronLeft
           size={theme.space['12'].value}
-          color={theme.colors.secondary_500_text.value}
+          color={theme.colors.tertiary_contrast_1.value}
         />
       </ArrowButton>
 
@@ -65,7 +65,7 @@ export const Location = () => {
       <ArrowButton type='button' onClick={onRightArrowClick}>
         <FiChevronRight
           size={theme.space['12'].value}
-          color={theme.colors.secondary_500_text.value}
+          color={theme.colors.tertiary_contrast_1.value}
         />
       </ArrowButton>
     </BackgroundImages>

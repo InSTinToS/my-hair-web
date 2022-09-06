@@ -1,7 +1,5 @@
-import type { TStoreState } from 'types/redux.types'
+import type { TStoreState } from '@app/types/redux.types'
 
 import type { TypedUseSelectorHook } from 'react-redux'
 
-type TUseAppSelector = TypedUseSelectorHook<TStoreState>
-
-export type { TUseAppSelector }
+export type TUseAppSelector = TypedUseSelectorHook<TStoreState>

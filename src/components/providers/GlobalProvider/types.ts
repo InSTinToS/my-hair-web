@@ -1,7 +1,5 @@
 import type { ReactNode } from 'react'
 
-interface IGlobalProviderProps {
+export interface IGlobalProviderProps {
   children: ReactNode
 }
-
-export type { IGlobalProviderProps }

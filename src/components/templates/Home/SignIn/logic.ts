@@ -1,6 +1,7 @@
 import { TOnSignInSubmit } from './types'
 
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
@@ -13,6 +14,8 @@ const schema = yup.object().shape({
 })
 
 export const useSignIn = () => {
+  const router = useRouter()
+
   const {
     register,
     handleSubmit,
@@ -24,6 +27,8 @@ export const useSignIn = () => {
   })
 
   const onSignInSubmit: TOnSignInSubmit = event => {
+    router.push('/main')
+
     handleSubmit(data => {
       console.log(data)
     })(event)

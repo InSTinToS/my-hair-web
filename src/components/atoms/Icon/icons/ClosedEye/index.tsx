@@ -20,5 +20,3 @@ export const ClosedEye = ({ title, ...props }: IIconProps) => (
     />
   </Icon>
 )
-
-export default ClosedEye

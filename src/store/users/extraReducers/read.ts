@@ -1,4 +1,4 @@
-import { TExtraReducers, TPayloadCreator } from 'types/redux.types'
+import { TExtraReducers, TPayloadCreator } from '@app/types/redux.types'
 
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
@@ -19,8 +19,5 @@ export const readExtraReducers: TExtraReducers<any> = ({ addCase }) => {
     loading: false
   }))
 
-  addCase(readThunk.rejected, state => ({
-    ...state,
-    loading: false
-  }))
+  addCase(readThunk.rejected, state => ({ ...state, loading: false }))
 }

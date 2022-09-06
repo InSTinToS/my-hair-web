@@ -4,11 +4,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = { loading: undefined, users: undefined }
 
-const usersStore = createSlice({
+export const usersStore = createSlice({
   initialState,
-
   name: 'users-store',
   reducers: { update }
 })
-
-export { usersStore }

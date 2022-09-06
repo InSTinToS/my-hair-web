@@ -1,4 +1,4 @@
-import { ICubeForwarded } from 'components/molecules/Cube/types'
+import { ICubeForwarded } from '@app/components/molecules/Cube/types'
 
 import { useRef } from 'react'
 

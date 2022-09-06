@@ -1,8 +1,15 @@
-import { pxToRem } from 'utils/pxToRem'
+import { pxToRem } from '@app/utils/pxToRem'
 
 export const sizes = {
   px: '1px',
   auto: 'auto',
+  xs: pxToRem(320),
+  sm: pxToRem(640),
+  md: pxToRem(768),
+  lg: pxToRem(1024),
+  xl: pxToRem(1280),
+  '2xl': pxToRem(1536),
+  '3xl': pxToRem(1920),
   1: pxToRem(2),
   2: pxToRem(4),
   3: pxToRem(6),
@@ -17,11 +24,15 @@ export const sizes = {
   12: pxToRem(36),
   13: pxToRem(40),
   14: pxToRem(44),
+  15: pxToRem(46),
   16: pxToRem(48),
   20: pxToRem(52),
   21: pxToRem(58),
   22: pxToRem(64),
   24: pxToRem(80),
+  25: pxToRem(86),
+  26: pxToRem(88),
+  27: pxToRem(90),
   28: pxToRem(96),
   32: pxToRem(112),
   36: pxToRem(128),

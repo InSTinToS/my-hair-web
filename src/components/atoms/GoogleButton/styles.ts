@@ -1,6 +1,6 @@
-import { Google as GoogleIcon } from '../Icon/icons/Google'
+import { styled } from '@app/styles'
 
-import { styled } from 'styles'
+import { Google as GoogleIcon } from '@app/components/atoms/Icon/icons/Google'
 
 export const Google = styled(GoogleIcon, {
   mr: '$8',
@@ -23,5 +23,5 @@ export const Styles = styled('button', {
 
   transition: 'all 0.3s ease-in-out',
 
-  backgroundColor: '$google_white'
+  backgroundColor: '$google_1'
 })

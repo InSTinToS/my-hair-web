@@ -1,4 +1,4 @@
-import { composeClassName } from './index'
+import { composeClassName } from '.'
 
 describe('composeClassName', () => {
   it('should be able to compose className correctly', () => {

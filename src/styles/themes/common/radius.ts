@@ -1,4 +1,4 @@
-import { pxToRem } from 'utils/pxToRem'
+import { pxToRem } from '@app/utils/pxToRem'
 
 export const radius = {
   1: pxToRem(2),
@@ -8,5 +8,5 @@ export const radius = {
   5: pxToRem(12),
   6: pxToRem(16),
   7: pxToRem(24),
-  full: '9999px'
+  full: '100%'
 }

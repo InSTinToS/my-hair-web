@@ -37,7 +37,14 @@ export const globalStyles = globalCss({
     padding: 0,
     fontSize: '$3',
     fontFamily: '$roboto',
-    boxSizing: 'border-box',
-    colorAutoFill: 'red'
+    boxSizing: 'border-box'
+  },
+
+  body: {
+    theme: '$secondary',
+    button: {
+      border: 'none',
+      backgroundColor: 'transparent'
+    }
   }
 })
