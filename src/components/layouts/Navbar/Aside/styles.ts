@@ -25,7 +25,9 @@ export const Style = styled('aside', {
         color: '$secondary_1_contrast',
 
         span: { ml: '$8' }
-      }
+      },
+
+      '& + li': { mt: '$10' }
     }
   },
 

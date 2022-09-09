@@ -4,7 +4,9 @@ import { AddImage } from '@app/components/atoms/Icon/icons/AddImage'
 
 import { Locations } from '@app/components/templates/Business/Locations'
 
-export const Business = () => (
+import { TNextPageWithLayout } from '@app/types/next.types'
+
+export const Business: TNextPageWithLayout = () => (
   <>
     <Header>
       <File htmlFor='thumbnail'>

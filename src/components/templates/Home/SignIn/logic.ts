@@ -1,5 +1,6 @@
 import { TOnSignInSubmit } from './types'
 
+import { gql } from '@apollo/client'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
@@ -29,9 +30,7 @@ export const useSignIn = () => {
   const onSignInSubmit: TOnSignInSubmit = event => {
     router.push('/main')
 
-    handleSubmit(data => {
-      console.log(data)
-    })(event)
+    handleSubmit(data => {})(event)
   }
 
   return { onSignInSubmit, register, dirtyFields, errors }

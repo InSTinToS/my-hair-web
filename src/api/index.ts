@@ -1,3 +1,6 @@
-import axios from 'axios'
+import { ApolloClient, InMemoryCache } from '@apollo/client'
 
-export const api = axios.create({ baseURL: 'https://localhost:3001' })
+export const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: 'http://localhost:3001/graphql'
+})

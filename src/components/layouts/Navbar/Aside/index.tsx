@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Style } from './styles'
 
 import { Map } from '@app/components/atoms/Icon/icons/Map'
@@ -21,10 +22,18 @@ export const Aside = () => {
 
       <ul>
         <li>
-          <button onClick={() => router.push('/business')}>
+          <button onClick={() => router.push('/user/businesses')}>
             <Map fill='secondary_contrast' size='md' />
 
-            {show && <span>Adicionar barbearia</span>}
+            {show && <span>Buscar barbearias</span>}
+          </button>
+        </li>
+
+        <li>
+          <button onClick={() => router.push('/user/businesses')}>
+            <Map fill='secondary_contrast' size='md' />
+
+            {show && <span>Meus negócios</span>}
           </button>
         </li>
       </ul>
