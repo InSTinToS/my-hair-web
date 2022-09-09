@@ -1,16 +1,39 @@
 import { useLocations } from './logic'
-import { Country, External, Form, Location, Street, Style } from './styles'
+import {
+  AddButton,
+  AddedList,
+  CancelButton,
+  Footer,
+  Form,
+  Label,
+  SubmitButton
+} from './styles'
+import { Style } from './styles'
 
+import { Location } from './Location'
+
+import { Close } from '@app/components/atoms/Icon/icons/Close'
 import { Map } from '@app/components/atoms/Icon/icons/Map'
+import { Plus } from '@app/components/atoms/Icon/icons/Plus'
 
-import { ChangeableList } from '@app/components/molecules/ChangeableList'
 import { Collapse } from '@app/components/molecules/Collapse'
 import { Field } from '@app/components/molecules/Field'
 import { ToggleHeader } from '@app/components/molecules/ToggleHeader'
 
+import { Item } from '@app/components/templates/Business/Locations/Item'
+
 export const Locations = () => {
-  const { onFormSubmit, onCollapseChange, locations, open, register } =
-    useLocations()
+  const {
+    open,
+    show,
+    items,
+    register,
+    onAddClick,
+    onFormSubmit,
+    onCloseClick,
+    onCancelClick,
+    onCollapseChange
+  } = useLocations()
 
   return (
     <Style>
@@ -24,69 +47,87 @@ export const Locations = () => {
           />
         }
         content={
-          <ChangeableList
-            onAddClick={onFormSubmit}
-            toAddContent={
-              <Form onSubmit={onFormSubmit}>
-                <Field
-                  grid
-                  placeholder='País'
-                  onlyBottom
-                  {...register('country')}
-                />
+          <>
+            <AddedList>
+              {items.map(item => (
+                <Item key={item.id} id={item.id} onCloseClick={onCloseClick}>
+                  <Location location={item} />
+                </Item>
+              ))}
+            </AddedList>
 
-                <Field
-                  grid
-                  placeholder='Estado'
-                  onlyBottom
-                  {...register('state')}
-                />
+            <Footer show={show}>
+              {show && (
+                <Form onSubmit={onFormSubmit}>
+                  <Field
+                    grid
+                    onlyBottom
+                    placeholder='País'
+                    {...register('country')}
+                  />
 
-                <Field
-                  grid
-                  placeholder='Rua'
-                  onlyBottom
-                  {...register('street')}
-                />
+                  <Field
+                    grid
+                    onlyBottom
+                    placeholder='Estado'
+                    {...register('state')}
+                  />
 
-                <Field
-                  grid
-                  placeholder='Número'
-                  onlyBottom
-                  {...register('number')}
-                />
+                  <Field
+                    grid
+                    onlyBottom
+                    placeholder='Rua'
+                    {...register('street')}
+                  />
 
-                <Field
-                  grid
-                  onlyBottom
-                  placeholder='Complemento'
-                  {...register('complement')}
-                />
+                  <Field
+                    grid
+                    onlyBottom
+                    placeholder='Número'
+                    {...register('number')}
+                  />
 
-                <Field
-                  grid
-                  placeholder='Link no mapa'
-                  onlyBottom
-                  {...register('link')}
-                />
-              </Form>
-            }
-            items={locations?.map(
-              ({ city, country, street, number, link }, index) => (
-                <Location key={index}>
-                  <Country>
-                    {country}, {city}
-                  </Country>
+                  <Field
+                    grid
+                    onlyBottom
+                    placeholder='Complemento'
+                    {...register('complement')}
+                  />
 
-                  <Street>
-                    {street}, {number}
-                  </Street>
+                  <Field
+                    grid
+                    onlyBottom
+                    placeholder='Link no mapa'
+                    {...register('link')}
+                  />
 
-                  {link && <External size='sm' fill='info' href={link} />}
-                </Location>
-              )
-            )}
-          />
+                  <CancelButton
+                    theme='error'
+                    radius='none'
+                    onClick={onCancelClick}
+                  >
+                    <Close size='sm' fill='secondary_contrast' />
+
+                    <Label>Cancelar</Label>
+                  </CancelButton>
+
+                  <SubmitButton radius='none' theme='success'>
+                    <Plus size='sm' stroke='secondary_contrast' />
+
+                    <Label>Adicionar</Label>
+                  </SubmitButton>
+                </Form>
+              )}
+
+              {!show && (
+                <AddButton onClick={onAddClick} radius='none' theme='success'>
+                  <Plus size='sm' stroke='secondary_contrast' />
+
+                  <Label>Adicionar</Label>
+                </AddButton>
+              )}
+            </Footer>
+          </>
         }
       />
     </Style>

@@ -9,6 +9,16 @@ export const File = styled('label', {
   input: { display: 'none' }
 })
 
+export const Header = styled('header', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+
+  p: '$7',
+
+  '@sm': { p: '$10' }
+})
+
 export const Style = styled('main', {
   minWidth: '$xs',
   minHeight: '100vh',
@@ -16,16 +26,6 @@ export const Style = styled('main', {
   p: '$7',
 
   backgroundColor: '$tertiary_1',
-
-  '@sm': { p: '$10' }
-})
-
-export const Header = styled('header', {
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-
-  p: '$7',
 
   '@sm': { p: '$10' }
 })

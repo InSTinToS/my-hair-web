@@ -22,7 +22,7 @@ export const Aside = () => {
 
       <ul>
         <li>
-          <button onClick={() => router.push('/user/businesses')}>
+          <button onClick={() => router.push('/main')}>
             <Map fill='secondary_contrast' size='md' />
 
             {show && <span>Buscar barbearias</span>}
