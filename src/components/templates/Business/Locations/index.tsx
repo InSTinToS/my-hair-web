@@ -9,7 +9,8 @@ import { Field } from '@app/components/molecules/Field'
 import { ToggleHeader } from '@app/components/molecules/ToggleHeader'
 
 export const Locations = () => {
-  const { onCollapseChange, locations, open } = useLocations()
+  const { onFormSubmit, onCollapseChange, locations, open, register } =
+    useLocations()
 
   return (
     <Style>
@@ -24,24 +25,50 @@ export const Locations = () => {
         }
         content={
           <ChangeableList
+            onAddClick={onFormSubmit}
             toAddContent={
-              <Form>
-                <Field grid placeholder='País' name='country' onlyBottom />
+              <Form onSubmit={onFormSubmit}>
+                <Field
+                  grid
+                  placeholder='País'
+                  onlyBottom
+                  {...register('country')}
+                />
 
-                <Field grid placeholder='Estado' name='state' onlyBottom />
+                <Field
+                  grid
+                  placeholder='Estado'
+                  onlyBottom
+                  {...register('state')}
+                />
 
-                <Field grid placeholder='Rua' name='street' onlyBottom />
+                <Field
+                  grid
+                  placeholder='Rua'
+                  onlyBottom
+                  {...register('street')}
+                />
 
-                <Field grid placeholder='Número' name='number' onlyBottom />
+                <Field
+                  grid
+                  placeholder='Número'
+                  onlyBottom
+                  {...register('number')}
+                />
 
                 <Field
                   grid
                   onlyBottom
-                  name='complement'
                   placeholder='Complemento'
+                  {...register('complement')}
                 />
 
-                <Field grid placeholder='Link no mapa' name='link' onlyBottom />
+                <Field
+                  grid
+                  placeholder='Link no mapa'
+                  onlyBottom
+                  {...register('link')}
+                />
               </Form>
             }
             items={locations?.map(

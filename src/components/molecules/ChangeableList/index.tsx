@@ -6,6 +6,7 @@ import { Item } from './Item'
 
 export const ChangeableList = ({
   items,
+  onAddClick,
   toAddContent
 }: IChangeableListProps) => (
   <Style>
@@ -13,6 +14,6 @@ export const ChangeableList = ({
       <Item key={index}>{item}</Item>
     ))}
 
-    <AddContent>{toAddContent}</AddContent>
+    <AddContent onAddClick={onAddClick}>{toAddContent}</AddContent>
   </Style>
 )

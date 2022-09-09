@@ -5,8 +5,11 @@ import { IAddContentProps } from './types'
 import { Close } from '@app/components/atoms/Icon/icons/Close'
 import { Plus } from '@app/components/atoms/Icon/icons/Plus'
 
-export const AddContent = ({ children }: IAddContentProps) => {
-  const { show, onAddClick } = useAddContent()
+export const AddContent = ({
+  children,
+  onAddClick: onClick
+}: IAddContentProps) => {
+  const { show, onAddClick } = useAddContent({ onClick })
 
   return (
     <Style show={show}>
