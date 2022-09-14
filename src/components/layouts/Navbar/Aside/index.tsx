@@ -1,42 +1,27 @@
 /* eslint-disable @next/next/no-img-element */
 import { Style } from './styles'
 
+import { AnimatedSpan } from './AnimatedSpan'
+import { Item } from './Item'
+
 import { Map } from '@app/components/atoms/Icon/icons/Map'
 
-import { useRouter } from 'next/router'
-import { useState } from 'react'
+export const Aside = ({ show, setShow }: any) => (
+  <Style show={show}>
+    <header>
+      <button onClick={() => setShow((prev: boolean) => !prev)}>
+        <img alt='barbearia' src='/barberShop/1.jpg' />
 
-export const Aside = () => {
-  const router = useRouter()
-  const [show, setShow] = useState(false)
+        <AnimatedSpan label='Miguel Andrade' condition={show} />
+      </button>
+    </header>
 
-  return (
-    <Style>
-      <header>
-        <button onClick={() => setShow(prev => !prev)}>
-          <img alt='barbearia' src='/barberShop/1.jpg' />
-        </button>
-
-        {show && <span>Miguel Andrade</span>}
-      </header>
-
-      <ul>
-        <li>
-          <button onClick={() => router.push('/main')}>
-            <Map fill='secondary_contrast' size='md' />
-
-            {show && <span>Buscar barbearias</span>}
-          </button>
-        </li>
-
-        <li>
-          <button onClick={() => router.push('/user/businesses')}>
-            <Map fill='secondary_contrast' size='md' />
-
-            {show && <span>Meus negócios</span>}
-          </button>
-        </li>
-      </ul>
-    </Style>
-  )
-}
+    <ul>
+      <Item
+        condition={show}
+        label='Buscar Barbearias'
+        icon={<Map fill='secondary_contrast' size='md' />}
+      />
+    </ul>
+  </Style>
+)

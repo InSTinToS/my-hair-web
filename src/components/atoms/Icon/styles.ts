@@ -4,7 +4,11 @@ export const IconStyle = styled('svg', {
   flexCenter: 'row',
 
   variants: {
-    size: { sm: { size: '$7' }, md: { size: '$9' }, lg: { size: '$12' } },
+    size: {
+      sm: { size: '$7' },
+      md: { size: '$9', minSize: '$9' },
+      lg: { size: '$12' }
+    },
     fill: {
       primary: { fill: '$primary_1' },
       primary_contrast: { fill: '$primary_contrast_1' },

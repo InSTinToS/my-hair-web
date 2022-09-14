@@ -14,10 +14,7 @@ export const AddCard = styled('li', {
 })
 
 export const Style = styled('div', {
-  theme: '$tertiary_1',
-  minHeight: '100vh',
-  pt: '$26',
-  pr: '$25',
+  border: 'solid red 1px',
 
   ul: {
     display: 'flex',

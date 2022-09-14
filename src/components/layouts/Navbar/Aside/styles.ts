@@ -7,28 +7,20 @@ export const Style = styled('aside', {
   top: 0,
   right: 0,
 
-  height: '100vh',
   px: '$8',
   py: '$8',
+  width: '$25',
+  height: '100vh',
+
+  transition: 'all 0.3s ease-in-out',
 
   backgroundColor: hexRgba(theme.colors.secondary_1.value, 0.98),
 
   ul: {
     flexCenter: 'col',
+
     mt: '$13',
-    listStyle: 'none',
-
-    li: {
-      button: {
-        flexCenter: 'row',
-
-        color: '$secondary_1_contrast',
-
-        span: { ml: '$8' }
-      },
-
-      '& + li': { mt: '$10' }
-    }
+    listStyle: 'none'
   },
 
   header: {
@@ -42,5 +34,15 @@ export const Style = styled('aside', {
     },
 
     span: { ml: '$8' }
+  },
+
+  variants: {
+    show: {
+      true: {
+        width: '$56',
+
+        'ul li button': { justifyContent: 'space-between' }
+      }
+    }
   }
 })
