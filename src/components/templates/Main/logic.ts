@@ -1,19 +1,7 @@
-import { IBusiness } from '@app/types/api/business.types'
-
-import { gql, useQuery } from '@apollo/client'
-
-const GET_LOCATIONS = gql`
-  query Businesses {
-    businesses {
-      id
-      name
-      thumbnail
-    }
-  }
-`
+import { useReadBusinesses } from '@app/services/hooks/business/readBusinesses'
 
 export const useMain = () => {
-  const { data, loading } = useQuery<{ businesses: IBusiness[] }>(GET_LOCATIONS)
+  const { data, isFetching } = useReadBusinesses()
 
-  return { businesses: data?.businesses, loading }
+  return { businesses: data?.businesses, loading: isFetching }
 }

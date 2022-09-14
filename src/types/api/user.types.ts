@@ -1,4 +1,4 @@
-import { IBusiness } from './Business.types'
+import { IBusiness } from './business.types'
 
 export interface IUser {
   id: string
@@ -17,5 +17,5 @@ export interface IUser {
 
   full_name?: string
 
-  business_ids?: IBusiness['id'][]
+  businesses_ids?: IBusiness['id'][]
 }

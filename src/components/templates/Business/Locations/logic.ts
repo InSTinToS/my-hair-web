@@ -20,18 +20,7 @@ const initialValues = {
 export const useLocations = () => {
   const [open, setOpen] = useState(false)
   const [show, setShow] = useState(false)
-
-  const [items, setItems] = useState<ILocation[]>([
-    {
-      id: '0',
-      link: 'link',
-      complement: '',
-      number: '2298',
-      country: 'Brasil',
-      state: 'São Paulo',
-      street: 'Rua Mackenzie'
-    }
-  ])
+  const [items, setItems] = useState<ILocation[]>([])
 
   const { register, handleSubmit, reset } = useForm({
     mode: 'onBlur',
@@ -42,16 +31,7 @@ export const useLocations = () => {
     event.preventDefault()
 
     handleSubmit(data => {
-      const newValue: ILocation = {
-        id: '1',
-        ...data
-      }
-
-      setItems(prev => [...prev, newValue])
-
       reset()
-
-      console.log(data)
     })(event)
   }
 

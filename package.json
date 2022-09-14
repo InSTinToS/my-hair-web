@@ -14,7 +14,6 @@
     "doc:build": "build-storybook"
   },
   "dependencies": {
-    "@apollo/client": "^3.6.9",
     "@hookform/resolvers": "^2.9.7",
     "@radix-ui/react-collapsible": "^1.0.0",
     "@radix-ui/react-label": "^1.0.0",
@@ -24,12 +23,14 @@
     "axios": "^0.27.2",
     "framer-motion": "^6.5.1",
     "graphql": "^16.6.0",
+    "graphql-request": "^5.0.0",
     "next": "^12.2.5",
     "next-themes": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.34.2",
     "react-icons": "^4.4.0",
+    "react-query": "^3.39.2",
     "react-redux": "^8.0.2",
     "yup": "^0.32.11"
   },

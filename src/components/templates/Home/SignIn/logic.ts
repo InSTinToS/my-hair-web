@@ -1,8 +1,10 @@
 import { TOnSignInSubmit } from './types'
 
-import { gql } from '@apollo/client'
+import { useReadUser } from '@app/services/hooks/user/readUser'
+
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useRouter } from 'next/router'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 
@@ -16,6 +18,9 @@ const schema = yup.object().shape({
 
 export const useSignIn = () => {
   const router = useRouter()
+  const [email, setEmail] = useState('')
+
+  const { refetch } = useReadUser({ email, enabled: false })
 
   const {
     register,
@@ -28,10 +33,16 @@ export const useSignIn = () => {
   })
 
   const onSignInSubmit: TOnSignInSubmit = event => {
-    router.push('/main')
+    handleSubmit(data => {
+      setEmail(data.email)
+    })(event)
 
-    handleSubmit(data => {})(event)
+    router.push('/main')
   }
+
+  useEffect(() => {
+    if (email) refetch()
+  }, [email, refetch])
 
   return { onSignInSubmit, register, dirtyFields, errors }
 }

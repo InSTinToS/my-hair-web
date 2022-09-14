@@ -1,41 +1,45 @@
+import { api } from '@app/services/api'
+import { useReadUserBusinesses } from '@app/services/hooks/user/readUserBusinesses'
+
 import { IBusiness } from '@app/types/api/business.types'
 
-import { gql, useLazyQuery, useQuery } from '@apollo/client'
-import { useEffect } from 'react'
-
-const GET_USER_BUSINESSES_IDS = gql`
-  query User($readUserInput: ReadUserInput) {
-    user(readUserInput: $readUserInput) {
-      businesses_ids
-    }
-  }
-`
+import { gql } from 'graphql-request'
+import { useQuery } from 'react-query'
 
 const GET_BUSINESSES = gql`
-  query UserBusinesses($businessesIds: [String!]) {
-    userBusinesses(businessesIds: $businessesIds) {
+  query Query($readBusinessesInput: ReadBusinessesInput) {
+    businesses(readBusinessesInput: $readBusinessesInput) {
       id
       name
       thumbnail
+      admins_ids
+      locations {
+        id
+        link
+        state
+        street
+        number
+        country
+        complement
+      }
     }
   }
 `
 
 export const useMyBusinesses = () => {
-  const { data: userRes } = useQuery(GET_USER_BUSINESSES_IDS, {
-    variables: { readUserInput: { email: 'miguel@miguel.com' } }
-  })
+  const userBusinessesIds = [{}]
 
-  const [getBusinesses, { data }] = useLazyQuery<{
-    userBusinesses: IBusiness[]
-  }>(GET_BUSINESSES)
+  const { data } = useReadUserBusinesses()
 
-  useEffect(() => {
-    userRes?.user &&
-      getBusinesses({
-        variables: { businessesIds: userRes.user.businesses_ids }
+  const businessesResponse = useQuery<{ businesses: IBusiness[] }>(
+    'READ_BUSINESSES',
+    async () =>
+      await api.request(GET_BUSINESSES, {
+        readBusinessesInput: userBusinessesIds
       })
-  }, [getBusinesses, userRes])
+  )
 
-  return { businesses: data?.userBusinesses }
+  const businesses = businessesResponse.data?.businesses
+
+  return { businesses }
 }

@@ -5,16 +5,18 @@ import { ThemeProvider } from '../ThemeProvider'
 
 import { store } from '@app/store'
 
-import { ApolloProvider } from '@apollo/client'
-import { client } from '@app/api'
+import { reactQueryClient } from '@app/services/api'
+import { ReactQueryDevtools } from 'react-query/devtools'
+import { QueryClientProvider } from 'react-query/react'
 import { Provider as ReduxProvider } from 'react-redux'
 
 export const GlobalProvider = ({ children }: IGlobalProviderProps) => (
-  <ApolloProvider client={client}>
+  <QueryClientProvider client={reactQueryClient}>
     <ReduxProvider store={store}>
       <ThemeProvider>
+        <ReactQueryDevtools />
         <RadixProvider>{children}</RadixProvider>
       </ThemeProvider>
     </ReduxProvider>
-  </ApolloProvider>
+  </QueryClientProvider>
 )

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
 import { useMyBusinesses } from './logic'
 import { AddCard, Style } from './styles'
 
@@ -13,7 +14,7 @@ export const MyBusinesses: TNextPageWithLayout = () => {
   return (
     <Style>
       <ul>
-        {businesses?.map(item => (
+        {businesses?.map((item: any) => (
           <BusinessCard item={item} key={item.id} />
         ))}
 
